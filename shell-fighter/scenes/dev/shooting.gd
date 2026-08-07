@@ -1,7 +1,7 @@
 extends Node2D
 
 const muzzleDistance: float = 60
-const bulletVelocityMagnitude: float = 1
+const bulletVelocityMagnitude: float = 20
 
 var bullet = preload("res://scenes/dev/bullet.tscn")
 var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
@@ -29,7 +29,7 @@ func _input(event):
 func shoot():
 	var newBullet = bullet.instantiate()
 	newBullet.position = muzzle.position
-	newBullet.velocity = shootDirection * bulletVelocityMagnitude
+	newBullet.get_node(NodePath("RigidBody2D")).apply_force(shootDirection * bulletVelocityMagnitude)
 	
 	# TODO: make this not a child of the player
 	add_child(newBullet)

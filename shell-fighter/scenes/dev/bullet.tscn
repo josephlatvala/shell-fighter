@@ -6,6 +6,10 @@
 [node name="Bullet" type="Node2D" unique_id=927468091]
 script = ExtResource("1_kf5e2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1927939433]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1875263574]
+mass = 0.001
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1927939433]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_1g3ls")
