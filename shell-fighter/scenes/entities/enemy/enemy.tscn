@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ddc82b82aw0uh"]
+
+[ext_resource type="Script" uid="uid://cdv7gx8j1v8ml" path="res://scenes/entities/enemy/enemy.gd" id="1_6fawb"]
+[ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scenes/entities/enemy/chase_component.gd" id="3_dxsuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(18, 18)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1644194860 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_6fawb")
+
+[node name="Sprite" type="Polygon2D" parent="." unique_id=1097942625]
+color = Color(0.62326145, 0.2699174, 0.29141966, 1)
+polygon = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
+uv = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524065040]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
+script = ExtResource("3_dxsuy")

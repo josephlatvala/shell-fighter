@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://cxohl1lt83n65"]
 
+[ext_resource type="PackedScene" uid="uid://ddc82b82aw0uh" path="res://scenes/entities/enemy/enemy.tscn" id="1_wjpdh"]
+[ext_resource type="PackedScene" uid="uid://dn4ece6uedwm6" path="res://scenes/entities/player/player.tscn" id="2_60a1k"]
+
 [node name="Prabhlean" type="Node2D" unique_id=1452347283]
+
+[node name="Enemy" parent="." unique_id=1644194860 instance=ExtResource("1_wjpdh")]
+position = Vector2(-354, -317)
+
+[node name="Player" parent="." unique_id=1644235627 instance=ExtResource("2_60a1k")]
+position = Vector2(106, -55)
+
+[node name="Enemy2" parent="." unique_id=1387545623 instance=ExtResource("1_wjpdh")]
+position = Vector2(368, 177)
