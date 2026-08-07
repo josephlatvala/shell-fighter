@@ -1,8 +1,10 @@
 extends Node2D
 
 const muzzleDistance: float = 60
+const bulletVelocityMagnitude: float = 1
 
 var bullet = preload("res://scenes/dev/bullet.tscn")
+var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 
 @onready var muzzle: Marker2D = $Muzzle
 
@@ -15,8 +17,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Get the mouse position relative to the center of the camera
 	var mousePosition = get_viewport().get_mouse_position() as Vector2i - get_window().size / 2
-	# Set the muzzle position to be a constant displacement away in the direction of the mouse
-	muzzle.position = mousePosition / sqrt(mousePosition.x**2 + mousePosition.y**2) * muzzleDistance
+	
+	shootDirection = mousePosition / sqrt(mousePosition.x**2 + mousePosition.y**2)
+	muzzle.position = shootDirection * muzzleDistance
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -26,4 +29,7 @@ func _input(event):
 func shoot():
 	var newBullet = bullet.instantiate()
 	newBullet.position = muzzle.position
+	newBullet.velocity = shootDirection * bulletVelocityMagnitude
+	
+	# TODO: make this not a child of the player
 	add_child(newBullet)

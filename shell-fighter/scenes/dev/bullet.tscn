@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bd4is86yovg3o"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_1g3ls"]
+[ext_resource type="Script" uid="uid://jq0a6qgj1a4p" path="res://scenes/dev/bullet.gd" id="1_kf5e2"]
 
 [node name="Bullet" type="Node2D" unique_id=927468091]
+script = ExtResource("1_kf5e2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1927939433]
 scale = Vector2(0.3, 0.3)
