@@ -3,7 +3,7 @@ extends Node2D
 const muzzleDistance: float = 60
 const bulletVelocityMagnitude: float = 20
 
-var bullet = preload("res://scenes/dev/bullet.tscn")
+const BULLET = preload("res://scenes/entities/bullet/bullet.tscn")
 var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 
 @onready var muzzle: Marker2D = $Muzzle
@@ -27,7 +27,7 @@ func _input(event):
 			shoot()
 
 func shoot():
-	var newBullet = bullet.instantiate()
+	var newBullet = BULLET.instantiate()
 	newBullet.position = muzzle.position
 	newBullet.get_node(NodePath("RigidBody2D")).apply_force(shootDirection * bulletVelocityMagnitude)
 	
