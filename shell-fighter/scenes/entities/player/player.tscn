@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dn4ece6uedwm6"]
 
+[ext_resource type="Script" uid="uid://b6n8pw1du0b6w" path="res://scenes/entities/player/shooting.gd" id="1_635qg"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_58kc7"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(16, 16)
 
@@ -22,9 +25,6 @@ polygon = PackedVector2Array(-4, -8, 4, -8, 4, -3, -4, -3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16977864]
 shape = SubResource("RectangleShape2D_1")
 
-[node name="Muzzle" type="Marker2D" parent="." unique_id=1398119879]
-position = Vector2(10, 0)
-
 [node name="Hurtbox" type="Area2D" parent="." unique_id=922554803]
 collision_layer = 0
 collision_mask = 2
@@ -34,3 +34,13 @@ shape = SubResource("CircleShape2D_1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1957843837]
 position_smoothing_enabled = true
+
+[node name="shootingComponent" type="Node2D" parent="." unique_id=545498133]
+script = ExtResource("1_635qg")
+
+[node name="Muzzle" type="Marker2D" parent="shootingComponent" unique_id=365304753]
+position = Vector2(10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="shootingComponent/Muzzle" unique_id=1166625576]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_58kc7")
