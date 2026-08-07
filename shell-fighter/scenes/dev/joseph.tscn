@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bj81eq4ivafp7"]
+
+[ext_resource type="Script" uid="uid://b6n8pw1du0b6w" path="res://scenes/dev/shooting.gd" id="1_i1w7n"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_gwvt6"]
+
+[node name="Joseph" type="Node2D" unique_id=707935294]
+
+[node name="shootingComponent" type="Node2D" parent="." unique_id=548846309]
+script = ExtResource("1_i1w7n")
+
+[node name="Muzzle" type="Marker2D" parent="shootingComponent" unique_id=1938344857]
+position = Vector2(10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="shootingComponent/Muzzle" unique_id=2024223091]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_gwvt6")
+
+[node name="Camera2D" type="Camera2D" parent="shootingComponent" unique_id=1601267882]
+
+[node name="Sprite2D" type="Sprite2D" parent="shootingComponent" unique_id=1589926388]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gwvt6")
