@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddc82b82aw0uh"]
 
 [ext_resource type="Script" uid="uid://cdv7gx8j1v8ml" path="res://scenes/entities/enemy/enemy.gd" id="1_6fawb"]
-[ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scenes/entities/enemy/chase_component.gd" id="3_dxsuy"]
+[ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="3_dxsuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(18, 18)
