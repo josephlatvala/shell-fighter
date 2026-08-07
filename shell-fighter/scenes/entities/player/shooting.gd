@@ -20,6 +20,7 @@ func _process(_delta: float) -> void:
 	
 	shootDirection = mousePosition / sqrt(mousePosition.x**2 + mousePosition.y**2)
 	muzzle.position = shootDirection * muzzleDistance
+	muzzle.rotation = atan(shootDirection.y / shootDirection.x)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -28,8 +29,10 @@ func _input(event):
 
 func shoot():
 	var newBullet = BULLET.instantiate()
-	newBullet.position = muzzle.position
-	newBullet.get_node(NodePath("RigidBody2D")).apply_force(shootDirection * bulletVelocityMagnitude)
 	
+	newBullet.position = muzzle.position
+	newBullet.rotation = muzzle.rotation
+	
+	newBullet.get_node(NodePath("RigidBody2D")).apply_force(shootDirection * bulletVelocityMagnitude)
 	# TODO: make this not a child of the player (position should be aboslute from here on out)
 	add_child(newBullet)
