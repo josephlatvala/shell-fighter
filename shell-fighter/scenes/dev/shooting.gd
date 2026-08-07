@@ -31,5 +31,5 @@ func shoot():
 	newBullet.position = muzzle.position
 	newBullet.get_node(NodePath("RigidBody2D")).apply_force(shootDirection * bulletVelocityMagnitude)
 	
-	# TODO: make this not a child of the player
+	# TODO: make this not a child of the player (position should be aboslute from here on out)
 	add_child(newBullet)
