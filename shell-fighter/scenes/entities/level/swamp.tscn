@@ -15,6 +15,7 @@ material = SubResource("ShaderMaterial_ha1pi")
 [node name="Background" parent="." unique_id=992737981 instance=ExtResource("2_dvch7")]
 
 [node name="SpawnArea1" parent="." unique_id=1944220573 instance=ExtResource("3_dvch7")]
+process_mode = 4
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 384.0
