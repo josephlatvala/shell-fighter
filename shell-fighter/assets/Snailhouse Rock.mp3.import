@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5s16v4opjf41"
+path="res://.godot/imported/Snailhouse Rock.mp3-bd4a763b6f4765161892b134fb1e1025.mp3str"
+
+[deps]
+
+source_file="res://assets/Snailhouse Rock.mp3"
+dest_files=["res://.godot/imported/Snailhouse Rock.mp3-bd4a763b6f4765161892b134fb1e1025.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

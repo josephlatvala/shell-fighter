@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://doq1fblqbekn"]
+
+[ext_resource type="AudioStream" uid="uid://vi6h0hlcvmfh" path="res://assets/Give Em Shell, Kid.mp3" id="1_gqk6q"]
+
+[node name="LevelMusicStreamer" type="AudioStreamPlayer" unique_id=700238048]
+stream = ExtResource("1_gqk6q")

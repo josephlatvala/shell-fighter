@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://d3h77mmtgt1al"]
+
+[ext_resource type="PackedScene" uid="uid://d1srx13nc76bs" path="res://assets/main_menu_music_streamer.tscn" id="1_uort0"]
+[ext_resource type="Script" uid="uid://cpkb2tqff1hc6" path="res://scenes/main/main_menu.gd" id="1_v3gjy"]
+
+[node name="MainMenu" type="Control" unique_id=2032479179]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3gjy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=514467755]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -77.0
+offset_right = 108.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1590936140]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=445510320]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1389390721]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="MainMenuMusicStreamer" parent="." unique_id=700238048 instance=ExtResource("1_uort0")]
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

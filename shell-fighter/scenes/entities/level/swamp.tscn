@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://33jaxwv2dfj6" path="res://scenes/entities/level/background.gdshader" id="1_yt2x1"]
 [ext_resource type="PackedScene" uid="uid://ckwp25eqw0hfb" path="res://scenes/entities/level/background.tscn" id="2_dvch7"]
 [ext_resource type="PackedScene" uid="uid://of1satu7oc54" path="res://scenes/entities/level/enemy_spawner.tscn" id="3_dvch7"]
+[ext_resource type="PackedScene" uid="uid://doq1fblqbekn" path="res://assets/level_music_streamer.tscn" id="5_cdrei"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ha1pi"]
 shader = ExtResource("1_yt2x1")
@@ -24,3 +25,6 @@ offset_bottom = 1012.0
 border_width = 5.0
 
 [node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_nh0vn")]
+
+[node name="LevelMusicStreamer" parent="." unique_id=700238048 instance=ExtResource("5_cdrei")]
+autoplay = true
