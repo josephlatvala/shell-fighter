@@ -1,7 +1,14 @@
 extends Node2D
 
-const muzzleDistance: float = 20
-const bulletVelocityMagnitude: float = 20
+
+# TODO: Consider making these depend on a selectable gun
+const muzzleDistance: float = 30
+const bulletVelocityMagnitude: float = 100
+const bulletTimeToLive: float = 0.3
+const bulletDamage: int = 10
+const bulletShotCount: int = 3
+const bulletSpread: float = PI * 0.01
+
 
 const BULLET = preload("res://scenes/entities/bullet/bullet.tscn")
 var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
@@ -9,6 +16,7 @@ var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 @onready var muzzle: Marker2D = $Muzzle
 @onready var player: Node2D = $".."
 @onready var sprite: Sprite2D = $Muzzle/Sprite2D
+@onready var ammo_component: AmmoComponent = $"../AmmoComponent"
 
 @onready var debug_mouse_tracker: Line2D = $DebugMouseTracker
 @onready var debug_aim_tracker: Line2D = $DebugAimTracker
@@ -45,10 +53,28 @@ func _input(event):
 			shoot()
 
 func shoot():
-	var newBullet = BULLET.instantiate()
+	if not ammo_component.try_use_ammo():
+		return
+		
+	randomize()
 	
-	newBullet.position = muzzle.position + player.position
-	newBullet.rotation = muzzle.rotation
+	var baseDirection = shootDirection * bulletVelocityMagnitude
 	
-	newBullet.get_node(NodePath("RigidBody2D")).apply_force(shootDirection * bulletVelocityMagnitude)
-	player.add_sibling(newBullet)
+	for _i in range(bulletShotCount):
+		var newBullet = BULLET.instantiate()
+		
+		newBullet.position = muzzle.position + player.position
+		newBullet.rotation = muzzle.rotation
+		
+		newBullet.damage = bulletDamage
+		newBullet.timeToLive = bulletTimeToLive
+		
+		# Rotate the bullet randomly based on spread
+		var theta = randf_range(-bulletSpread, bulletSpread)
+		var bulletDirection = Vector2(
+			baseDirection.dot(Vector2(cos(theta), -sin(theta))),
+			baseDirection.dot(Vector2(sin(theta),  cos(theta)))
+		)
+		
+		newBullet.get_node(NodePath("RigidBody2D")).apply_force(bulletDirection)
+		player.add_sibling(newBullet)

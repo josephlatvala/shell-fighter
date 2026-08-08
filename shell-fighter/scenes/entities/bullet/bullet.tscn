@@ -13,7 +13,7 @@ mass = 0.001
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1927939433]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ekees")
 
 [node name="Area2D" type="Area2D" parent="RigidBody2D" unique_id=490092293]
@@ -21,5 +21,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D" unique_id=1072347422]
+scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_ob3tw")
 debug_color = Color(0.98039216, 0, 0.3882353, 0.6392157)

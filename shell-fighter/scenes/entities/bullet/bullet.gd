@@ -1,8 +1,7 @@
 extends Node2D
 
-# TODO: Consider making bullets expire when they go off the screen rather than if a duration expires
-const timeToLive: float = 3
-const damage: int = 10
+@export var timeToLive: float = 0
+@export var damage: int = 0
 
 @onready var rigid_body_2d: RigidBody2D = $RigidBody2D
 @onready var area_2d: Area2D = $RigidBody2D/Area2D
