@@ -26,5 +26,5 @@ script = ExtResource("3_dxsuy")
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1104729490]
 script = ExtResource("3_6fawb")
-max_health = 30
+max_health = 90
 invincibility_time = 0.0
