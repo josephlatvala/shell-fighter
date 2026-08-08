@@ -50,3 +50,4 @@ texture = ExtResource("2_58kc7")
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1056291885]
 script = ExtResource("3_58kc7")
+invincibility_time = 4.0
