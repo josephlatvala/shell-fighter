@@ -44,7 +44,7 @@ func textureIndex(angle: float):
 	var bucket = ((angle + PI / 8) / (PI / 4)) as int % 8
 	
 	print(bucket)
-	const texturePermutation: Array = [16, 16, 17, 18, 18, 18, 17, 16]
+	const texturePermutation: Array = [16, 16, 17, 18, 18, 18, 19, 16]
 	return texturePermutation[bucket]
 
 func _input(event):
