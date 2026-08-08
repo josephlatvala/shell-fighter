@@ -81,6 +81,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bj7e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8akj5")
 }],
 "loop": 1,
 "name": &"move_down",
@@ -95,6 +98,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ovg4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sj0x")
 }],
 "loop": 1,
 "name": &"move_left",
@@ -109,6 +115,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xy2vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0oqr")
 }],
 "loop": 1,
 "name": &"move_right",
@@ -123,6 +132,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yywfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70kwc")
 }],
 "loop": 1,
 "name": &"move_up",
@@ -167,6 +179,57 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 12.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg2wu"]
+atlas = ExtResource("3_nh4ur")
+region = Rect2(612, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dqom"]
+atlas = ExtResource("3_nh4ur")
+region = Rect2(648, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go8vc"]
+atlas = ExtResource("3_nh4ur")
+region = Rect2(576, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wghkl"]
+atlas = ExtResource("3_nh4ur")
+region = Rect2(684, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha1pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg2wu")
+}],
+"loop": 1,
+"name": &"gun_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dqom")
+}],
+"loop": 1,
+"name": &"gun_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go8vc")
+}],
+"loop": 1,
+"name": &"gun_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wghkl")
+}],
+"loop": 1,
+"name": &"gun_up",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=1644235627 groups=["player"]]
 collision_mask = 4
 script = ExtResource("1_nh4ur")
@@ -174,11 +237,8 @@ script = ExtResource("1_nh4ur")
 [node name="Visuals" type="Node2D" parent="." unique_id=339103310]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=394871500]
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8akj5")
-animation = &"move_up"
-frame = 1
-frame_progress = 0.5635687
+animation = &"move_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16977864]
 visible = false
@@ -193,6 +253,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1957843837]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="shootingComponent" type="Node2D" parent="." unique_id=545498133]
@@ -201,10 +262,9 @@ script = ExtResource("1_635qg")
 [node name="Muzzle" type="Marker2D" parent="shootingComponent" unique_id=365304753]
 position = Vector2(10, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="shootingComponent/Muzzle" unique_id=1166625576]
-scale = Vector2(2, 2)
-texture = ExtResource("3_nh4ur")
-hframes = 24
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="shootingComponent/Muzzle" unique_id=1429044823]
+sprite_frames = SubResource("SpriteFrames_ha1pi")
+animation = &"gun_down"
 
 [node name="DebugAimTracker" type="Line2D" parent="shootingComponent" unique_id=1312434693]
 visible = false
