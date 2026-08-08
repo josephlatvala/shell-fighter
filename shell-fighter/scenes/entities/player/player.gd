@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var muzzle: Marker2D = $shootingComponent/Muzzle
+@onready var animated_sprite_2d: AnimatedSprite2D = $Visuals/AnimatedSprite2D
 
 @export var speed: int = 150
 @export var knockback_strength: float = 700.0
@@ -61,3 +63,19 @@ func _on_dash_cooldown_timer_timeout():
 
 func _on_in_dash_timer_timeout():
 	speed = speed / 4
+
+func _process(_delta):
+	var move: bool = false
+	if velocity.length() > 0:
+		move = true
+	assignPlayerTexture(muzzle.rotation, move)
+
+func assignPlayerTexture(angle: float, move: bool):
+	var bucket = ((angle + PI / 4) / (PI / 2)) as int % 4
+	const stillTexturePermutation = ["still_right", "still_down", "still_left", "still_up"]
+	const moveTexturePermutation = ["move_right", "move_down", "move_left", "move_up"]
+	
+	if move:
+		animated_sprite_2d.play(moveTexturePermutation[bucket])
+	else:
+		animated_sprite_2d.play(stillTexturePermutation[bucket])

@@ -35,9 +35,9 @@ func _process(_delta: float) -> void:
 	
 	debug_aim_tracker.set_point_position(1, muzzle.position * 16)
 	
-	sprite.frame = textureIndex(muzzle.rotation)
+	sprite.frame = gunTextureIndex(muzzle.rotation)
 
-func textureIndex(angle: float):
+func gunTextureIndex(angle: float):
 	# Divide it into buckets of size PI/4,
 	# shift it up by PI/8 so the cardinal directoins are in the center of each bucket,
 	# and tuncate to get the index
