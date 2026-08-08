@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ckwp25eqw0hfb"]
+
+[ext_resource type="Texture2D" uid="uid://b044m7oo0ncfl" path="res://assets/checkerboard.png" id="1_s0o4u"]
+
+[node name="Background" type="Node2D" unique_id=992737981]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2050989724]
+texture_repeat = 2
+scale = Vector2(4, 4)
+texture = ExtResource("1_s0o4u")

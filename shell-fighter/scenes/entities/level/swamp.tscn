@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b5oonjelms62m"]
+
+[ext_resource type="PackedScene" uid="uid://dn4ece6uedwm6" path="res://scenes/entities/player/player.tscn" id="1_nh0vn"]
+[ext_resource type="Shader" uid="uid://33jaxwv2dfj6" path="res://scenes/entities/level/background.gdshader" id="1_yt2x1"]
+[ext_resource type="PackedScene" uid="uid://ckwp25eqw0hfb" path="res://scenes/entities/level/background.tscn" id="2_dvch7"]
+[ext_resource type="PackedScene" uid="uid://of1satu7oc54" path="res://scenes/entities/level/enemy_spawner.tscn" id="3_dvch7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ha1pi"]
+shader = ExtResource("1_yt2x1")
+shader_parameter/camera_position = Vector2(0, 0)
+
+[node name="Swamp" type="Node2D" unique_id=579309800]
+material = SubResource("ShaderMaterial_ha1pi")
+
+[node name="Background" parent="." unique_id=992737981 instance=ExtResource("2_dvch7")]
+
+[node name="SpawnArea1" parent="." unique_id=1944220573 instance=ExtResource("3_dvch7")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 384.0
+offset_top = -993.0
+offset_right = 1249.0
+offset_bottom = 1012.0
+border_width = 5.0
+
+[node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_nh0vn")]
