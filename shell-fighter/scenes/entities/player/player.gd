@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var hurtbox: Area2D = $Hurtbox
 
-@export var speed: int = 5
+@export var speed: int = 150
 @export var knockback_strength: float = 700.0
 @export var knockback_friction: float = 900.0  # how fast the knockback velocity decays
 
