@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const AMMO_PICKUP = preload("res://scenes/pickup/AmmoPickup.tscn")
+
 @export var contact_damage: int = 10
 @export var score_value: int= 10
 
@@ -18,4 +20,8 @@ func _physics_process(_delta: float) -> void:
 
 func _on_died() -> void:
 	Score.add_score(score_value)
+	# TODO: randomly decide between regular or scatter ammo once ammo types are added
+	var drop = AMMO_PICKUP.instantiate()
+	drop.position = position
+	add_sibling(drop)
 	queue_free()
