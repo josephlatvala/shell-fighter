@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://bjq2p8a7k8rtq"]
+
+[ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+sprite_scale = 0.08
+damage = 100
+speed = 60.0
+time_to_live = 1.5
+shot_count = 1
+spread = 0.0
+is_grenade = true
+fuse_time = 1.2
+explosion_radius = 50.0
+max_ammo = 5

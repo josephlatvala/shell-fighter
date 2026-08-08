@@ -1,27 +1,59 @@
 extends Node
 class_name AmmoComponent
 
-signal ammo_changed(current: int, max: int)
-signal out_of_ammo
+signal ammo_changed(bullet_data: BulletData, current: int, max: int)
+signal out_of_ammo(bullet_data: BulletData)
 
-@export var max_ammo: int = 20
+# Each bullet type gets its own pool, sized by that BulletData's max_ammo.
+@export var tracked_bullet_types: Array[BulletData] = []
 
-@onready var current_ammo: int = max_ammo
+var _ammo: Dictionary = {} # BulletData -> current ammo (int)
 
-func try_use_ammo(amount: int = 1) -> bool:
-	if current_ammo < amount:
+func _ready() -> void:
+	for data in tracked_bullet_types:
+		if data:
+			_register(data)
+
+func _register(data: BulletData) -> void:
+	if not _ammo.has(data):
+		_ammo[data] = data.max_ammo
+
+func try_use_ammo(bullet_data: BulletData, amount: int = -1) -> bool:
+	if not bullet_data:
+		return false
+	_register(bullet_data)
+
+	var cost := amount if amount >= 0 else bullet_data.ammo_cost
+	var current: int = _ammo[bullet_data]
+
+	if current < cost:
 		return false
 
-	current_ammo -= amount
-	print("Ammo left: ", current_ammo)
-	ammo_changed.emit(current_ammo, max_ammo)
-	if current_ammo == 0:
-		out_of_ammo.emit()
+	current -= cost
+	_ammo[bullet_data] = current
+	print("%s ammo left: %d" % [bullet_data.resource_path.get_file(), current])
+	ammo_changed.emit(bullet_data, current, bullet_data.max_ammo)
+	if current == 0:
+		out_of_ammo.emit(bullet_data)
 	return true
 
-func add_ammo(amount: int) -> void:
-	current_ammo = min(current_ammo + amount, max_ammo)
-	ammo_changed.emit(current_ammo, max_ammo)
+func add_ammo(bullet_data: BulletData, amount: int) -> void:
+	if not bullet_data:
+		return
+	_register(bullet_data)
 
-func is_empty() -> bool:
-	return current_ammo <= 0
+	var current: int = min(_ammo[bullet_data] + amount, bullet_data.max_ammo)
+	_ammo[bullet_data] = current
+	ammo_changed.emit(bullet_data, current, bullet_data.max_ammo)
+
+func is_empty(bullet_data: BulletData) -> bool:
+	if not bullet_data:
+		return true
+	_register(bullet_data)
+	return _ammo[bullet_data] <= 0
+
+func get_current_ammo(bullet_data: BulletData) -> int:
+	if not bullet_data:
+		return 0
+	_register(bullet_data)
+	return _ammo[bullet_data]
