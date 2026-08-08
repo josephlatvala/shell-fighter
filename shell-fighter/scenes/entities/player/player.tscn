@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dn4ece6uedwm6"]
 
 [ext_resource type="Script" uid="uid://b6n8pw1du0b6w" path="res://scenes/entities/player/shooting.gd" id="1_635qg"]
+[ext_resource type="Script" uid="uid://cbl8atr24cu21" path="res://scenes/entities/player/player.gd" id="1_nh4ur"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_58kc7"]
+[ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_58kc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(16, 16)
@@ -11,6 +13,7 @@ radius = 12.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1644235627 groups=["player"]]
 collision_mask = 4
+script = ExtResource("1_nh4ur")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=339103310]
 
@@ -44,3 +47,6 @@ position = Vector2(10, 0)
 [node name="Sprite2D" type="Sprite2D" parent="shootingComponent/Muzzle" unique_id=1166625576]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_58kc7")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1056291885]
+script = ExtResource("3_58kc7")

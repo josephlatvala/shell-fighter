@@ -13,3 +13,4 @@ position = Vector2(106, -55)
 
 [node name="Enemy2" parent="." unique_id=1387545623 instance=ExtResource("1_wjpdh")]
 position = Vector2(368, 177)
+collision_mask = 8
