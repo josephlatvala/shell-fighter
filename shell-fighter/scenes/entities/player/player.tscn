@@ -57,3 +57,13 @@ invincibility_time = 2.0
 [node name="AmmoComponent" type="Node2D" parent="." unique_id=326574242]
 script = ExtResource("5_bjvvg")
 max_ammo = 10
+
+[node name="InDashTimer" type="Timer" parent="." unique_id=614175632]
+wait_time = 0.2
+one_shot = true
+
+[node name="DashCooldownTimer" type="Timer" parent="." unique_id=108647467]
+wait_time = 5.0
+
+[connection signal="timeout" from="InDashTimer" to="." method="_on_in_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]
