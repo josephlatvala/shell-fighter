@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b6n8pw1du0b6w" path="res://scenes/entities/player/shooting.gd" id="1_635qg"]
 [ext_resource type="Script" uid="uid://cbl8atr24cu21" path="res://scenes/entities/player/player.gd" id="1_nh4ur"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_58kc7"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_58kc7"]
+[ext_resource type="Texture2D" uid="uid://cclm4a3qg00ui" path="res://assets/art/shellfightCharacterAssets.png" id="3_nh4ur"]
 [ext_resource type="Script" uid="uid://bt776gjmemy8t" path="res://scripts/ammo_component.gd" id="5_bjvvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
@@ -46,8 +46,20 @@ script = ExtResource("1_635qg")
 position = Vector2(10, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="shootingComponent/Muzzle" unique_id=1166625576]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_58kc7")
+scale = Vector2(2, 2)
+texture = ExtResource("3_nh4ur")
+hframes = 24
+
+[node name="DebugAimTracker" type="Line2D" parent="shootingComponent" unique_id=1312434693]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="DebugMouseTracker" type="Line2D" parent="shootingComponent" unique_id=1090498410]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1056291885]
 script = ExtResource("3_58kc7")
