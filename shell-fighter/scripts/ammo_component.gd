@@ -6,13 +6,14 @@ signal out_of_ammo
 
 @export var max_ammo: int = 20
 
-var current_ammo: int = max_ammo
+@onready var current_ammo: int = max_ammo
 
 func try_use_ammo(amount: int = 1) -> bool:
 	if current_ammo < amount:
 		return false
 
 	current_ammo -= amount
+	print("Ammo left: ", current_ammo)
 	ammo_changed.emit(current_ammo, max_ammo)
 	if current_ammo == 0:
 		out_of_ammo.emit()

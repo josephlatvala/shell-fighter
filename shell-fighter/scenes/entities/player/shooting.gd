@@ -13,6 +13,7 @@ var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 
 @onready var muzzle: Marker2D = $Muzzle
 @onready var player: Node2D = $".."
+@onready var ammo_component: AmmoComponent = $"../AmmoComponent"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +35,9 @@ func _input(event):
 			shoot()
 
 func shoot():
+	if not ammo_component.try_use_ammo():
+		return
+		
 	randomize()
 	
 	var baseDirection = shootDirection * bulletVelocityMagnitude

@@ -56,3 +56,4 @@ invincibility_time = 2.0
 
 [node name="AmmoComponent" type="Node2D" parent="." unique_id=326574242]
 script = ExtResource("5_bjvvg")
+max_ammo = 10

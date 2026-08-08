@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b76ajuaeqm21j"]
+
+[ext_resource type="Script" uid="uid://c03c1q3axe0a5" path="res://scenes/pickup/ammo_pickup.gd" id="1_pc2ub"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_12k40"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5n4k0"]
+
+[node name="AmmoPickup" type="Area2D" unique_id=390165608]
+collision_layer = 0
+script = ExtResource("1_pc2ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1370709145]
+shape = SubResource("CircleShape2D_5n4k0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=911882927]
+modulate = Color(1, 1, 0.29411766, 1)
+scale = Vector2(0.18164063, 0.12304688)
+texture = ExtResource("2_12k40")
