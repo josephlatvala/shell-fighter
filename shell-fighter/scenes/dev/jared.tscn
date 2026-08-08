@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bw2ntn00it7ru"]
+
+[ext_resource type="PackedScene" uid="uid://dn4ece6uedwm6" path="res://scenes/entities/player/player.tscn" id="1_2fmsn"]
+
+[node name="Jared" type="Node2D" unique_id=2054189159]
+
+[node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_2fmsn")]
+speed = 150
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=855332461]
+offset_left = 28.0
+offset_top = -60.0
+offset_right = 68.0
+offset_bottom = -20.0
