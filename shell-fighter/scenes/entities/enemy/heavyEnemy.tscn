@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cjupnsdya8r7b"]
+
+[ext_resource type="Script" uid="uid://b7fen3075x6kj" path="res://scenes/entities/enemy/heavy_enemy.gd" id="1_jhsld"]
+[ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="2_5rjq2"]
+[ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_2vwmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(18, 18)
+
+[node name="heavyEnemy" type="CharacterBody2D" unique_id=1644194860 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_jhsld")
+contact_damage = 3
+score_value = 20
+
+[node name="Sprite" type="Polygon2D" parent="." unique_id=1097942625]
+color = Color(0.6318647, 0.2816471, 0.079076104, 1)
+polygon = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
+uv = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524065040]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
+script = ExtResource("2_5rjq2")
+speed = 60.0
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1104729490]
+script = ExtResource("3_2vwmq")
+max_health = 60
+invincibility_time = 0.0
