@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 var screenSize: Vector2
 var knockback_velocity: Vector2 = Vector2.ZERO
+var canDash: bool = true
 
 func _ready() -> void:
 	screenSize = get_viewport_rect().size
@@ -45,3 +46,18 @@ func _physics_process(delta):
 	velocity += knockback_velocity
 	move_and_slide()
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction * delta)
+	if Input.is_action_just_pressed("dash") and $InDashTimer.time_left == 0 and !velocity.is_zero_approx() and canDash:
+		dash()
+	
+func dash():
+	canDash = false
+	speed = speed * 4
+	$InDashTimer.start()
+	$DashCooldownTimer.start()
+
+func _on_dash_cooldown_timer_timeout():
+	canDash = true
+
+
+func _on_in_dash_timer_timeout():
+	speed = speed / 4
