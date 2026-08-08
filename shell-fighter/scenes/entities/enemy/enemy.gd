@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const AMMO_PICKUP = preload("res://scenes/pickup/AmmoPickup.tscn")
+
 @export var contact_damage: int = 10
 @export var score_value: int= 10
 
