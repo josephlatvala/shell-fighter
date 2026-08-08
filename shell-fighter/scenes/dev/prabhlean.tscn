@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cxohl1lt83n65"]
 
+[ext_resource type="PackedScene" uid="uid://bjldxqrboa2gl" path="res://scenes/hud/hud.tscn" id="1_60a1k"]
 [ext_resource type="PackedScene" uid="uid://ddc82b82aw0uh" path="res://scenes/entities/enemy/enemy.tscn" id="1_wjpdh"]
 [ext_resource type="PackedScene" uid="uid://dn4ece6uedwm6" path="res://scenes/entities/player/player.tscn" id="2_60a1k"]
 
@@ -19,3 +20,5 @@ position = Vector2(-36, -616)
 
 [node name="Enemy4" parent="." unique_id=997271728 instance=ExtResource("1_wjpdh")]
 position = Vector2(-553, 348)
+
+[node name="HUD" parent="." unique_id=449399484 instance=ExtResource("1_60a1k")]
