@@ -4,8 +4,11 @@ extends CharacterBody2D
 @onready var hurtbox: Area2D = $Hurtbox
 
 @export var speed: int = 5
+@export var knockback_strength: float = 700.0
+@export var knockback_friction: float = 900.0  # how fast the knockback velocity decays
 
 var screenSize: Vector2
+var knockback_velocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	screenSize = get_viewport_rect().size
@@ -20,9 +23,14 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and "contact_damage" in body:
 		print("Ouchie")
 		health_component.take_damage(body.contact_damage)
+		_apply_knockback(body.global_position)
 		hurtbox.set_deferred("monitoring", false)
 		await get_tree().create_timer(health_component.invincibility_time).timeout
 		hurtbox.monitoring = true
+
+func _apply_knockback(from_position: Vector2) -> void:
+	var direction := (global_position - from_position).normalized()
+	knockback_velocity = direction * knockback_strength
 
 func _on_died() -> void:
 	# TODO: hook up to a game over
@@ -32,6 +40,8 @@ func get_input():
 	var directionalInput = Input.get_vector("leftMovement", "rightMovement", "upMovement", "downMovement")
 	velocity = directionalInput.normalized() * speed
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	get_input()
+	velocity += knockback_velocity
 	move_and_slide()
+	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction * delta)
