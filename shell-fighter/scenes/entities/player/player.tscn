@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cbl8atr24cu21" path="res://scenes/entities/player/player.gd" id="1_nh4ur"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_58kc7"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_58kc7"]
+[ext_resource type="Script" uid="uid://bt776gjmemy8t" path="res://scripts/ammo_component.gd" id="5_bjvvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(16, 16)
@@ -52,3 +53,6 @@ texture = ExtResource("2_58kc7")
 script = ExtResource("3_58kc7")
 max_health = 5
 invincibility_time = 2.0
+
+[node name="AmmoComponent" type="Node2D" parent="." unique_id=326574242]
+script = ExtResource("5_bjvvg")
