@@ -65,17 +65,16 @@ func _on_in_dash_timer_timeout():
 	speed = speed / 4
 
 func _process(_delta):
-	var move: bool = false
-	if velocity.length() > 0:
-		move = true
-	assignPlayerTexture(muzzle.rotation, move)
+	var speed = velocity.length()
+	assignPlayerTexture(muzzle.rotation, speed)
 
-func assignPlayerTexture(angle: float, move: bool):
+func assignPlayerTexture(angle: float, speed: float):
 	var bucket = ((angle + PI / 4) / (PI / 2)) as int % 4
 	const stillTexturePermutation = ["still_right", "still_down", "still_left", "still_up"]
 	const moveTexturePermutation = ["move_right", "move_down", "move_left", "move_up"]
 	
-	if move:
+	if speed > 0:
+		animated_sprite_2d.speed_scale = speed / 80
 		animated_sprite_2d.play(moveTexturePermutation[bucket])
 	else:
 		animated_sprite_2d.play(stillTexturePermutation[bucket])

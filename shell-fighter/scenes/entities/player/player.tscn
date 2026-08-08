@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move_down",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -104,7 +104,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move_left",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,7 +121,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move_right",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -138,7 +138,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move_up",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -240,7 +240,7 @@ script = ExtResource("1_nh4ur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=394871500]
 sprite_frames = SubResource("SpriteFrames_8akj5")
-animation = &"move_right"
+animation = &"move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16977864]
 visible = false

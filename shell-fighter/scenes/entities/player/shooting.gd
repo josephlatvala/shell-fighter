@@ -21,7 +21,6 @@ var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 @onready var debug_mouse_tracker: Line2D = $DebugMouseTracker
 @onready var debug_aim_tracker: Line2D = $DebugAimTracker
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Get the mouse position relative to the center of the camera
