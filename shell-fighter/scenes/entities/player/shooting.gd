@@ -44,6 +44,14 @@ func AssignGunTexture(angle: float):
 	var bucket = ((angle + PI / 8) / (PI / 4)) as int % 8
 	
 	const texturePermutation: Array = ["gun_right", "gun_right", "gun_down", "gun_left", "gun_left", "gun_left", "gun_up", "gun_right"]
+	
+	if bucket in [5, 6, 7]:
+		muzzle.z_index = 2
+	else:
+		muzzle.z_index = 4
+		
+	print(muzzle.z_index)
+	
 	animated_sprite_2d.play(texturePermutation[bucket])
 
 func _input(event):

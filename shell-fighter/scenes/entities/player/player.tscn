@@ -231,6 +231,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1644235627 groups=["player"]]
+z_index = 3
+z_as_relative = false
 collision_mask = 4
 script = ExtResource("1_nh4ur")
 
@@ -257,9 +259,12 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="shootingComponent" type="Node2D" parent="." unique_id=545498133]
+z_index = 4
 script = ExtResource("1_635qg")
 
 [node name="Muzzle" type="Marker2D" parent="shootingComponent" unique_id=365304753]
+z_index = 4
+z_as_relative = false
 position = Vector2(10, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="shootingComponent/Muzzle" unique_id=1429044823]
