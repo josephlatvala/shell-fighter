@@ -7,6 +7,7 @@ const BULLET = preload("res://scenes/entities/bullet/bullet.tscn")
 var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 
 @onready var muzzle: Marker2D = $Muzzle
+@onready var player: Node2D = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,9 +31,8 @@ func _input(event):
 func shoot():
 	var newBullet = BULLET.instantiate()
 	
-	newBullet.position = muzzle.position
+	newBullet.position = muzzle.position + player.position
 	newBullet.rotation = muzzle.rotation
 	
 	newBullet.get_node(NodePath("RigidBody2D")).apply_force(shootDirection * bulletVelocityMagnitude)
-	# TODO: make this not a child of the player (position should be aboslute from here on out)
-	add_child(newBullet)
+	player.add_sibling(newBullet)
