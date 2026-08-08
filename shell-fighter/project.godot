@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 MainMenuMusicStreamer="*uid://d1srx13nc76bs"
 Score="*uid://du72emn3njak2"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/scale=2.0
+
 [gui]
 
 theme/custom_font="uid://bnak25xvm02p"

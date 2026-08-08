@@ -49,8 +49,6 @@ func AssignGunTexture(angle: float):
 		muzzle.z_index = 2
 	else:
 		muzzle.z_index = 4
-		
-	print(muzzle.z_index)
 	
 	animated_sprite_2d.play(texturePermutation[bucket])
 
