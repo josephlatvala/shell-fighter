@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0xksyl3n07hu"
+path="res://.godot/imported/Trush Can!!!!! by oratoruk (Tropical Jazz Swing).wav-621bd509c81a5c08403e9391fe11eb19.sample"
+
+[deps]
+
+source_file="res://assets/Trush Can!!!!! by oratoruk (Tropical Jazz Swing).wav"
+dest_files=["res://.godot/imported/Trush Can!!!!! by oratoruk (Tropical Jazz Swing).wav-621bd509c81a5c08403e9391fe11eb19.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
