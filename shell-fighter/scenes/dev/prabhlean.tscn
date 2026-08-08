@@ -5,12 +5,17 @@
 
 [node name="Prabhlean" type="Node2D" unique_id=1452347283]
 
-[node name="Enemy" parent="." unique_id=1644194860 instance=ExtResource("1_wjpdh")]
-position = Vector2(-354, -317)
-
 [node name="Player" parent="." unique_id=1644235627 instance=ExtResource("2_60a1k")]
-position = Vector2(106, -55)
+position = Vector2(-24, 2)
 
-[node name="Enemy2" parent="." unique_id=1387545623 instance=ExtResource("1_wjpdh")]
-position = Vector2(368, 177)
-collision_mask = 8
+[node name="Enemy" parent="." unique_id=1644194860 instance=ExtResource("1_wjpdh")]
+position = Vector2(-588, -409)
+
+[node name="Enemy2" parent="." unique_id=1095153757 instance=ExtResource("1_wjpdh")]
+position = Vector2(683, -194)
+
+[node name="Enemy3" parent="." unique_id=1819926682 instance=ExtResource("1_wjpdh")]
+position = Vector2(-36, -616)
+
+[node name="Enemy4" parent="." unique_id=997271728 instance=ExtResource("1_wjpdh")]
+position = Vector2(-553, 348)
