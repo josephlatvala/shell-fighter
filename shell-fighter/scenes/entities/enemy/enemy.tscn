@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cdv7gx8j1v8ml" path="res://scenes/entities/enemy/enemy.gd" id="1_6fawb"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_6fawb"]
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="3_dxsuy"]
+[ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_in88q"]
+[ext_resource type="PackedScene" uid="uid://b76ajuaeqm21j" path="res://scenes/pickup/AmmoPickup.tscn" id="5_dxsuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(18, 18)
@@ -28,3 +30,9 @@ script = ExtResource("3_dxsuy")
 script = ExtResource("3_6fawb")
 max_health = 30
 invincibility_time = 0.0
+
+[node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_in88q")]
+
+[node name="AmmoPickup" parent="ItemDrop" unique_id=390165608 instance=ExtResource("5_dxsuy")]
+
+[connection signal="died" from="HealthComponent" to="ItemDrop" method="_on_died"]

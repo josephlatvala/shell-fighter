@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cr8apjfblj36x" path="res://scenes/entities/enemy/light_enemy.gd" id="1_ngdte"]
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="2_gm0ca"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_2jmdc"]
+[ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_2jmdc"]
+[ext_resource type="PackedScene" uid="uid://b76ajuaeqm21j" path="res://scenes/pickup/AmmoPickup.tscn" id="5_rpyg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(18, 18)
@@ -28,3 +30,7 @@ speed = 240.0
 script = ExtResource("3_2jmdc")
 max_health = 15
 invincibility_time = 0.0
+
+[node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_2jmdc")]
+
+[node name="AmmoPickup" parent="ItemDrop" unique_id=390165608 instance=ExtResource("5_rpyg6")]
