@@ -7,13 +7,6 @@
 
 [node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_2fmsn")]
 
-[node name="InDashTimer" type="Timer" parent="Player" unique_id=938168709]
-wait_time = 0.2
-one_shot = true
-
-[node name="DashCooldownTimer" type="Timer" parent="Player" unique_id=1489367992]
-wait_time = 5.0
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=855332461]
 offset_left = 28.0
 offset_top = -60.0
@@ -22,6 +15,3 @@ offset_bottom = -20.0
 
 [node name="MainMenuMusicStreamer" parent="." unique_id=700238048 instance=ExtResource("2_7v0y8")]
 volume_db = -80.0
-
-[connection signal="timeout" from="Player/InDashTimer" to="Player" method="_on_in_dash_timer_timeout"]
-[connection signal="timeout" from="Player/DashCooldownTimer" to="Player" method="_on_dash_cooldown_timer_timeout"]
