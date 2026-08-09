@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var muzzle: Marker2D = $shootingComponent/Muzzle
-@onready var animated_sprite_2d: AnimatedSprite2D = $Visuals/AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var speed: int = 150
 @export var knockback_strength: float = 700.0

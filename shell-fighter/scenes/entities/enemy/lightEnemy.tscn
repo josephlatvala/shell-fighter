@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="5_o5mpk"]
 [ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="6_45u4a"]
 [ext_resource type="Resource" uid="uid://d2jochhovqfud" path="res://scenes/entities/bullet/data/scatter_bullet.tres" id="7_co1rs"]
+[ext_resource type="Script" uid="uid://dq1uxkknj2wvj" path="res://scripts/flash_on_hit.gd" id="9_co1rs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_co1rs"]
 atlas = ExtResource("2_45u4a")
@@ -80,3 +81,7 @@ invincibility_time = 0.0
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_2jmdc")]
 max_drop = 3
 possible_bullet_data = Array[ExtResource("5_o5mpk")]([ExtResource("6_45u4a"), ExtResource("7_co1rs")])
+
+[node name="FlashOnHit" type="Node2D" parent="." unique_id=469364872]
+script = ExtResource("9_co1rs")
+target_path = NodePath("../Sprite")
