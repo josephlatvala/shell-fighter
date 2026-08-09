@@ -27,11 +27,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Get the mouse position relative to the center of the camera
-	var mousePosition = get_local_mouse_position() as Vector2i
+	var mousePosition = get_local_mouse_position() as Vector2
 	
 	debug_mouse_tracker.set_point_position(1, mousePosition)
-		
-	shootDirection = mousePosition / sqrt(mousePosition.x**2 + mousePosition.y**2)
+	
+	# Guard against divide by zero case
+	shootDirection = mousePosition.normalized() if mousePosition.length() > 0 else Vector2.RIGHT
 	muzzle.position = shootDirection * muzzleDistance
 	muzzle.rotation = -atan2(shootDirection.y, -shootDirection.x) + PI
 	
