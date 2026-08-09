@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjupnsdya8r7b" path="res://scenes/entities/enemy/heavyEnemy.tscn" id="4_q3yf3"]
 [ext_resource type="PackedScene" uid="uid://doq1fblqbekn" path="res://assets/level_music_streamer.tscn" id="5_cdrei"]
 [ext_resource type="PackedScene" uid="uid://ddc82b82aw0uh" path="res://scenes/entities/enemy/enemy.tscn" id="5_p0sgw"]
+[ext_resource type="PackedScene" uid="uid://bjldxqrboa2gl" path="res://scenes/hud/hud.tscn" id="8_p0sgw"]
 
 [sub_resource type="Shader" id="Shader_almml"]
 code = "hader_type canvas_item;
@@ -24,6 +25,8 @@ shader = SubResource("Shader_almml")
 
 [node name="Swamp" type="Node2D" unique_id=579309800]
 material = SubResource("ShaderMaterial_ha1pi")
+
+[node name="HUD" parent="." unique_id=449399484 instance=ExtResource("8_p0sgw")]
 
 [node name="Spawners" type="Node" parent="." unique_id=150911559]
 
