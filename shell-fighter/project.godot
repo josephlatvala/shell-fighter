@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MainMenuMusicStreamer="*uid://d1srx13nc76bs"
 Score="*uid://du72emn3njak2"
+LevelMusicStreamer="*uid://doq1fblqbekn"
 
 [display]
 

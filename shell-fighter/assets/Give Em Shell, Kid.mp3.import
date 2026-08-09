@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vi6h0hlcvmfh"
+path="res://.godot/imported/Give Em Shell, Kid.mp3-fd8fd1a6906e502baee52f04011f6bf4.mp3str"
+
+[deps]
+
+source_file="res://assets/Give Em Shell, Kid.mp3"
+dest_files=["res://.godot/imported/Give Em Shell, Kid.mp3-fd8fd1a6906e502baee52f04011f6bf4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d1srx13nc76bs"]
 
-[ext_resource type="AudioStream" uid="uid://0xksyl3n07hu" path="res://assets/Trush Can!!!!! by oratoruk (Tropical Jazz Swing).wav" id="1_8d6x2"]
+[ext_resource type="AudioStream" uid="uid://5s16v4opjf41" path="res://assets/Snailhouse Rock.mp3" id="1_8d6x2"]
 
 [node name="MainMenuMusicStreamer" type="AudioStreamPlayer" unique_id=700238048]
 stream = ExtResource("1_8d6x2")
-autoplay = true
