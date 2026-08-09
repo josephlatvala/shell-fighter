@@ -1,26 +1,69 @@
 [gd_scene format=3 uid="uid://ddc82b82aw0uh"]
 
 [ext_resource type="Script" uid="uid://cdv7gx8j1v8ml" path="res://scenes/entities/enemy/melee_enemy.gd" id="1_6fawb"]
+[ext_resource type="Texture2D" uid="uid://b4tjbdpiyovmv" path="res://assets/art/shellfightEnemyAssets.png" id="2_ilesx"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_6fawb"]
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="3_dxsuy"]
 [ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_in88q"]
 [ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="5_0wdte"]
 [ext_resource type="Resource" uid="uid://bjq2p8a7k8rtq" path="res://scenes/entities/bullet/data/grenade_bullet.tres" id="6_7gxlw"]
+[ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="6_ddkys"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilesx"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(150, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddkys"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(225, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h26p2"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(0, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ei1b"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(75, 0, 75, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha1pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilesx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddkys")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h26p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ei1b")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(18, 18)
+size = Vector2(33, 26)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1644194860 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_6fawb")
 
-[node name="Sprite" type="Polygon2D" parent="." unique_id=1097942625]
-color = Color(0.62326145, 0.2699174, 0.29141966, 1)
-polygon = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
-uv = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=693876254]
+sprite_frames = SubResource("SpriteFrames_ha1pi")
+animation = &"left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524065040]
+position = Vector2(4, 2)
 shape = SubResource("RectangleShape2D_1")
 
 [node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
@@ -33,4 +76,4 @@ invincibility_time = 0.0
 
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_in88q")]
 max_drop = 3
-possible_bullet_data = [ExtResource("5_0wdte"), ExtResource("6_7gxlw")]
+possible_bullet_data = Array[ExtResource("6_ddkys")]([ExtResource("5_0wdte"), ExtResource("6_7gxlw")])

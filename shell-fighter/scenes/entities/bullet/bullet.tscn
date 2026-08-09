@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bd4is86yovg3o"]
 
 [ext_resource type="Script" uid="uid://jq0a6qgj1a4p" path="res://scenes/entities/bullet/bullet.gd" id="1_rbbaa"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_ekees"]
+[ext_resource type="Texture2D" uid="uid://btrsixptip053" path="res://assets/art/shellfightAmmoBulletAssets.png" id="2_rbbaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbbaa"]
+atlas = ExtResource("2_rbbaa")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ob3tw"]
 
@@ -13,8 +16,7 @@ mass = 0.001
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1927939433]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_ekees")
+texture = SubResource("AtlasTexture_rbbaa")
 
 [node name="Area2D" type="Area2D" parent="RigidBody2D" unique_id=490092293]
 collision_layer = 0
