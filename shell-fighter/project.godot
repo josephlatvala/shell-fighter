@@ -79,4 +79,4 @@ dash={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-environment/defaults/default_clear_color=Color(0.06666667, 0.6, 0.33333334, 1)
+environment/defaults/default_clear_color=Color(0.09803922, 0.3137255, 0.35686275, 1)

@@ -2,8 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dn4ece6uedwm6" path="res://scenes/entities/player/player.tscn" id="1_nh0vn"]
 [ext_resource type="PackedScene" uid="uid://of1satu7oc54" path="res://scenes/entities/level/enemy_spawner.tscn" id="3_dvch7"]
+[ext_resource type="PackedScene" uid="uid://c7w2ncws067wk" path="res://scenes/entities/enemy/lightEnemy.tscn" id="3_q3yf3"]
 [ext_resource type="Texture2D" uid="uid://8nwq1fkm5kyv" path="res://assets/art/shellFightBackgroundAssets.png" id="4_ihvo6"]
+[ext_resource type="PackedScene" uid="uid://cjupnsdya8r7b" path="res://scenes/entities/enemy/heavyEnemy.tscn" id="4_q3yf3"]
 [ext_resource type="PackedScene" uid="uid://doq1fblqbekn" path="res://assets/level_music_streamer.tscn" id="5_cdrei"]
+[ext_resource type="PackedScene" uid="uid://ddc82b82aw0uh" path="res://scenes/entities/enemy/enemy.tscn" id="5_p0sgw"]
 
 [sub_resource type="Shader" id="Shader_almml"]
 code = "hader_type canvas_item;
@@ -22,65 +25,391 @@ shader = SubResource("Shader_almml")
 [node name="Swamp" type="Node2D" unique_id=579309800]
 material = SubResource("ShaderMaterial_ha1pi")
 
-[node name="SpawnArea1" parent="." unique_id=1944220573 instance=ExtResource("3_dvch7")]
+[node name="Spawners" type="Node" parent="." unique_id=150911559]
+
+[node name="SpawnArea1" parent="Spawners" unique_id=1944220573 instance=ExtResource("3_dvch7")]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 806.0
-offset_top = -450.0
-offset_right = 1353.0
-offset_bottom = 363.0
+offset_left = 1260.0
+offset_top = 732.3405
+offset_right = 1534.0
+offset_bottom = 1058.3406
 border_width = 5.0
+enemy_table = Array[Resource]([ExtResource("5_p0sgw"), ExtResource("3_q3yf3")])
+
+[node name="SpawnArea2" parent="Spawners" unique_id=1865074877 instance=ExtResource("3_dvch7")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1363.7739
+offset_top = -902.0
+offset_right = -1144.7739
+offset_bottom = -671.0
+border_width = 5.0
+maximum_spawn_delay = 9.0
+maximum_spawn_count = 3
+enemy_table = Array[Resource]([ExtResource("5_p0sgw"), ExtResource("5_p0sgw"), ExtResource("4_q3yf3")])
+
+[node name="SpawnArea3" parent="Spawners" unique_id=969358777 instance=ExtResource("3_dvch7")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 764.0
+offset_top = -1052.0
+offset_right = 1185.0
+offset_bottom = -821.0
+border_width = 5.0
+minimum_spawn_delay = 10.0
+maximum_spawn_delay = 20.0
+maximum_spawn_count = 8
 
 [node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_nh0vn")]
 
 [node name="LevelMusicStreamer" parent="." unique_id=700238048 instance=ExtResource("5_cdrei")]
 autoplay = true
 
-[node name="Decorations" type="Node" parent="." unique_id=1942598674]
+[node name="Decorations" type="Node2D" parent="." unique_id=485456836]
+z_index = -1
+z_as_relative = false
+
+[node name="Sprite2D31" type="Sprite2D" parent="Decorations" unique_id=1146190965]
+position = Vector2(1560.499, 673)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=1016465423]
-position = Vector2(-441, -186)
+position = Vector2(-1068.7739, -859)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D13" type="Sprite2D" parent="Decorations" unique_id=1553597788]
+position = Vector2(-1240.7739, -613)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D14" type="Sprite2D" parent="Decorations" unique_id=3657830]
+position = Vector2(-1397.7739, -922)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D20" type="Sprite2D" parent="Decorations" unique_id=1145894348]
+position = Vector2(857.99994, -687)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D37" type="Sprite2D" parent="Decorations" unique_id=417749416]
+position = Vector2(-1182, 122)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D38" type="Sprite2D" parent="Decorations" unique_id=1660400253]
+position = Vector2(762, 361)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D46" type="Sprite2D" parent="Decorations" unique_id=673553014]
+position = Vector2(54, 880)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D39" type="Sprite2D" parent="Decorations" unique_id=2062813125]
+position = Vector2(-713, -300)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D53" type="Sprite2D" parent="Decorations" unique_id=1177088795]
+position = Vector2(1575, -272)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D54" type="Sprite2D" parent="Decorations" unique_id=1723083849]
+position = Vector2(1882, 298)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D40" type="Sprite2D" parent="Decorations" unique_id=601744994]
+position = Vector2(-391, 54)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D41" type="Sprite2D" parent="Decorations" unique_id=1948520511]
+position = Vector2(-391, -543)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 
 [node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=1861217556]
-position = Vector2(196, 217)
+position = Vector2(-12, 18)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 1
+
+[node name="Sprite2D18" type="Sprite2D" parent="Decorations" unique_id=55296489]
+position = Vector2(-1494.774, -599.00006)
+rotation = -0.002663636
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 1
 
 [node name="Sprite2D3" type="Sprite2D" parent="Decorations" unique_id=2078346681]
-position = Vector2(1225, -96)
+position = Vector2(1124, 981)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 2
+
+[node name="Sprite2D15" type="Sprite2D" parent="Decorations" unique_id=1004006394]
+position = Vector2(-1286, -790)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 2
+
+[node name="Sprite2D42" type="Sprite2D" parent="Decorations" unique_id=1765764549]
+position = Vector2(-845, -54)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 2
+
+[node name="Sprite2D43" type="Sprite2D" parent="Decorations" unique_id=317820243]
+position = Vector2(184, -688)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 2
+
+[node name="Sprite2D44" type="Sprite2D" parent="Decorations" unique_id=1087897162]
+position = Vector2(823, -123)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 2
+
+[node name="Sprite2D45" type="Sprite2D" parent="Decorations" unique_id=2071504242]
+position = Vector2(-1047, 856)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 2
 
 [node name="Sprite2D4" type="Sprite2D" parent="Decorations" unique_id=1836395833]
-position = Vector2(-334, 74)
+position = Vector2(-1434.7739, -759)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 3
 
 [node name="Sprite2D5" type="Sprite2D" parent="Decorations" unique_id=391466061]
-position = Vector2(-102, -224)
+position = Vector2(605, -777)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 4
+
+[node name="Sprite2D19" type="Sprite2D" parent="Decorations" unique_id=2112159593]
+position = Vector2(1315, -782)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 4
+
+[node name="Sprite2D55" type="Sprite2D" parent="Decorations" unique_id=975124934]
+position = Vector2(1347, -148)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 4
+
+[node name="Sprite2D56" type="Sprite2D" parent="Decorations" unique_id=1707607397]
+position = Vector2(1926, -488)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 4
+
+[node name="Sprite2D16" type="Sprite2D" parent="Decorations" unique_id=1178608101]
+position = Vector2(-892, -615)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 4
+
+[node name="Sprite2D17" type="Sprite2D" parent="Decorations" unique_id=1852713926]
+position = Vector2(-585, 329)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 4
 
 [node name="Sprite2D6" type="Sprite2D" parent="Decorations" unique_id=388212336]
-position = Vector2(332, 73)
+position = Vector2(1267, 819.3405)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D23" type="Sprite2D" parent="Decorations" unique_id=2110017736]
+position = Vector2(62, -111)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D24" type="Sprite2D" parent="Decorations" unique_id=1405395930]
+position = Vector2(-1076.7739, -495)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D25" type="Sprite2D" parent="Decorations" unique_id=1528852612]
+position = Vector2(128, 386)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D47" type="Sprite2D" parent="Decorations" unique_id=531093140]
+position = Vector2(551, 731)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D57" type="Sprite2D" parent="Decorations" unique_id=772008752]
+position = Vector2(822, -988)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D58" type="Sprite2D" parent="Decorations" unique_id=528577739]
+position = Vector2(1079, -882)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D59" type="Sprite2D" parent="Decorations" unique_id=1748209280]
+position = Vector2(969, -1066)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D48" type="Sprite2D" parent="Decorations" unique_id=1956690780]
+position = Vector2(-749, 400)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D49" type="Sprite2D" parent="Decorations" unique_id=1151202993]
+position = Vector2(253, -560)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D50" type="Sprite2D" parent="Decorations" unique_id=708405744]
+position = Vector2(-340, -284)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D51" type="Sprite2D" parent="Decorations" unique_id=938313986]
+position = Vector2(1199, 313)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D52" type="Sprite2D" parent="Decorations" unique_id=59133421]
+position = Vector2(-722, 887)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D26" type="Sprite2D" parent="Decorations" unique_id=485579456]
+position = Vector2(-1430.7739, -411)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D22" type="Sprite2D" parent="Decorations" unique_id=1395975380]
+position = Vector2(-1106, -747)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D11" type="Sprite2D" parent="Decorations" unique_id=690879613]
+position = Vector2(1509, 870.3405)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D9" type="Sprite2D" parent="Decorations" unique_id=1007229453]
+position = Vector2(1333, 950)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D12" type="Sprite2D" parent="Decorations" unique_id=907066040]
+position = Vector2(1455, 998.3405)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D10" type="Sprite2D" parent="Decorations" unique_id=1611929307]
+position = Vector2(1455, 730.3405)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 5
 
 [node name="Sprite2D7" type="Sprite2D" parent="Decorations" unique_id=1019333247]
-position = Vector2(282, -69)
+position = Vector2(285, -77)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D32" type="Sprite2D" parent="Decorations" unique_id=920389050]
+position = Vector2(-1520, 68)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D33" type="Sprite2D" parent="Decorations" unique_id=117908019]
+position = Vector2(-1069, -280)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D34" type="Sprite2D" parent="Decorations" unique_id=616396671]
+position = Vector2(-187, -753)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D35" type="Sprite2D" parent="Decorations" unique_id=1974026759]
+position = Vector2(-591, -675)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D36" type="Sprite2D" parent="Decorations" unique_id=671889653]
+position = Vector2(976, -257)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D27" type="Sprite2D" parent="Decorations" unique_id=957781941]
+position = Vector2(-1205.7739, -496)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D28" type="Sprite2D" parent="Decorations" unique_id=505263010]
+position = Vector2(1347, 892.3405)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D29" type="Sprite2D" parent="Decorations" unique_id=1873885840]
+position = Vector2(129, 184)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D30" type="Sprite2D" parent="Decorations" unique_id=1513772360]
+position = Vector2(432, -746)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 6
 
 [node name="Sprite2D8" type="Sprite2D" parent="Decorations" unique_id=1872491290]
-position = Vector2(-130, -43)
+position = Vector2(530, -964)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 3
+
+[node name="Sprite2D21" type="Sprite2D" parent="Decorations" unique_id=1556249374]
+position = Vector2(-140, 392)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 3
