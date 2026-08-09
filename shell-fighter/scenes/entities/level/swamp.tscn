@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://8nwq1fkm5kyv" path="res://assets/art/shellFightBackgroundAssets.png" id="4_ihvo6"]
 [ext_resource type="PackedScene" uid="uid://doq1fblqbekn" path="res://assets/level_music_streamer.tscn" id="5_cdrei"]
 [ext_resource type="PackedScene" uid="uid://ddc82b82aw0uh" path="res://scenes/entities/enemy/enemy.tscn" id="5_p0sgw"]
+[ext_resource type="PackedScene" uid="uid://cm7gqfwom3ifc" path="res://scenes/pickup/health_pickup.tscn" id="7_p0sgw"]
 [ext_resource type="PackedScene" uid="uid://bjldxqrboa2gl" path="res://scenes/hud/hud.tscn" id="8_p0sgw"]
+[ext_resource type="Script" uid="uid://cb8oi0us2y8n7" path="res://scenes/entities/level/world_border.gd" id="9_oe1fv"]
 
 [sub_resource type="Shader" id="Shader_almml"]
 code = "hader_type canvas_item;
@@ -44,6 +46,9 @@ enemy_table = Array[Resource]([ExtResource("5_p0sgw"), ExtResource("3_q3yf3")])
 
 [node name="LevelMusicStreamer" parent="." unique_id=700238048 instance=ExtResource("5_cdrei")]
 autoplay = true
+
+[node name="HealthPickup" parent="." unique_id=1436417864 instance=ExtResource("7_p0sgw")]
+position = Vector2(160, 192)
 
 [node name="Decorations" type="Node2D" parent="." unique_id=485456836]
 z_index = -1
@@ -392,3 +397,7 @@ position = Vector2(-140, 392)
 texture = ExtResource("4_ihvo6")
 hframes = 7
 frame = 3
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1437549317]
+script = ExtResource("9_oe1fv")
+world_size = Vector2(3500, 1750)
