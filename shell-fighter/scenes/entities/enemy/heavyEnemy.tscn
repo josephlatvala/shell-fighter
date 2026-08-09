@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjupnsdya8r7b"]
 
-[ext_resource type="Script" uid="uid://b7fen3075x6kj" path="res://scenes/entities/enemy/heavy_enemy.gd" id="1_jhsld"]
+[ext_resource type="Script" uid="uid://cdv7gx8j1v8ml" path="res://scenes/entities/enemy/melee_enemy.gd" id="1_2vwmq"]
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="2_5rjq2"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_2vwmq"]
 [ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_2vwmq"]
@@ -12,9 +12,9 @@ size = Vector2(18, 18)
 [node name="heavyEnemy" type="CharacterBody2D" unique_id=1644194860 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_jhsld")
-contact_damage = 3
-score_value = 20
+script = ExtResource("1_2vwmq")
+score_value = 16
+contact_damage = 10
 
 [node name="Sprite" type="Polygon2D" parent="." unique_id=1097942625]
 color = Color(0.6318647, 0.2816471, 0.079076104, 1)
@@ -30,11 +30,8 @@ speed = 60.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1104729490]
 script = ExtResource("3_2vwmq")
-max_health = 60
 invincibility_time = 0.0
 
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_2vwmq")]
 
 [node name="AmmoPickup" parent="ItemDrop" unique_id=390165608 instance=ExtResource("5_f0445")]
-
-[connection signal="died" from="HealthComponent" to="ItemDrop" method="_on_health_component_died"]

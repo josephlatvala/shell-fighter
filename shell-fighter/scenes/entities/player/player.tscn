@@ -290,7 +290,7 @@ width = 5.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1056291885]
 script = ExtResource("3_58kc7")
-max_health = 5
+max_health = 30
 invincibility_time = 2.0
 
 [node name="AmmoComponent" type="Node2D" parent="." unique_id=326574242]
