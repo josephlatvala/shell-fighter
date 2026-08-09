@@ -2,21 +2,21 @@
 extends StaticBody2D
 class_name WorldBorder
 
-## Size of the playable area (width, height), centered on this node's origin.
+# Size of the playable area (width, height), centered on this node's origin
 @export var world_size: Vector2 = Vector2(640, 360):
 	set(value):
 		world_size = value
 		_rebuild()
 
-## Thickness of the boundary walls (in pixels).
+# Thickness of the boundary walls (in pixels).
 @export var wall_thickness: float = 16.0:
 	set(value):
 		wall_thickness = value
 		_rebuild()
 
 func _ready() -> void:
-	# Layer 2 (enemies) + Layer 3 (player) - both entities' collision_mask
-	# need to see this layer for the walls to actually block them.
+
+	# need to see this layer for the walls to actually block everyone
 	collision_layer = 6
 	collision_mask = 0
 	_rebuild()
