@@ -38,6 +38,7 @@ func try_use_ammo(bullet_data: BulletData, amount: int = -1) -> bool:
 	return true
 
 func add_ammo(bullet_data: BulletData, amount: int) -> void:
+	print("[ammo] Trying to add ammo")
 	if not bullet_data:
 		return
 	_register(bullet_data)
@@ -45,6 +46,7 @@ func add_ammo(bullet_data: BulletData, amount: int) -> void:
 	var current: int = min(_ammo[bullet_data] + amount, bullet_data.max_ammo)
 	_ammo[bullet_data] = current
 	ammo_changed.emit(bullet_data, current, bullet_data.max_ammo)
+	print("[ammo] adding ammo, now at %s" % [_ammo[bullet_data]])
 
 func is_empty(bullet_data: BulletData) -> bool:
 	if not bullet_data:
