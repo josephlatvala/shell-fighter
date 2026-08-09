@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_6fawb"]
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="3_dxsuy"]
 [ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_in88q"]
-[ext_resource type="PackedScene" uid="uid://b76ajuaeqm21j" path="res://scenes/pickup/AmmoPickup.tscn" id="5_dxsuy"]
+[ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="5_0wdte"]
+[ext_resource type="Resource" uid="uid://bjq2p8a7k8rtq" path="res://scenes/entities/bullet/data/grenade_bullet.tres" id="6_7gxlw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(18, 18)
@@ -31,5 +32,5 @@ max_health = 60
 invincibility_time = 0.0
 
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_in88q")]
-
-[node name="AmmoPickup" parent="ItemDrop" unique_id=390165608 instance=ExtResource("5_dxsuy")]
+max_drop = 3
+possible_bullet_data = [ExtResource("5_0wdte"), ExtResource("6_7gxlw")]

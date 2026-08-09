@@ -13,6 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 	var ammo_component: AmmoComponent = body.get_node("AmmoComponent")
 
+	print("[ammo_pickup] trying to give ammo")
 	if bullet_data:
 		ammo_component.add_ammo(bullet_data, ammo_amount)
 	else:
