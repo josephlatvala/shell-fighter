@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://btrsixptip053" path="res://assets/art/shellfightAmmoBulletAssets.png" id="2_ta2tq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_12k40"]
+atlas = ExtResource("2_ta2tq")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pc2ub"]
 atlas = ExtResource("2_ta2tq")
 region = Rect2(96, 0, 32, 32)
@@ -10,6 +14,8 @@ region = Rect2(96, 0, 32, 32)
 [resource]
 script = ExtResource("1")
 texture = SubResource("AtlasTexture_pc2ub")
+pickup_texture = SubResource("AtlasTexture_12k40")
+sprite_scale = 2.0
 damage = 50
 speed = 60.0
 shot_count = 1

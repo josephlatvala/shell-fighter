@@ -2,8 +2,10 @@ extends Resource
 class_name BulletData
 
 # Visual
-@export var texture: Texture2D
+@export var texture: Texture2D          # in-flight projectile sprite
+@export var pickup_texture: Texture2D   # icon shown on the world pickup — falls back to `texture` if unset
 @export var sprite_scale: float = 0.05
+@export var pickup_scale: float = 0.5
 
 # Combat
 @export var damage: int = 10
