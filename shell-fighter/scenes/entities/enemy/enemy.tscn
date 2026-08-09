@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="3_dxsuy"]
 [ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_in88q"]
 [ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="5_0wdte"]
-[ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="5_7gxlw"]
 [ext_resource type="Resource" uid="uid://bjq2p8a7k8rtq" path="res://scenes/entities/bullet/data/grenade_bullet.tres" id="6_7gxlw"]
 [ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="6_ddkys"]
 
@@ -69,7 +68,7 @@ shape = SubResource("RectangleShape2D_1")
 
 [node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
 script = ExtResource("3_dxsuy")
-speed = 150.0
+speed = 100.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1104729490]
 script = ExtResource("3_6fawb")
@@ -78,4 +77,4 @@ invincibility_time = 0.0
 
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_in88q")]
 max_drop = 3
-possible_bullet_data = Array[ExtResource("5_7gxlw")]([ExtResource("5_0wdte"), ExtResource("6_7gxlw")])
+possible_bullet_data = Array[ExtResource("6_ddkys")]([ExtResource("5_0wdte"), ExtResource("6_7gxlw")])

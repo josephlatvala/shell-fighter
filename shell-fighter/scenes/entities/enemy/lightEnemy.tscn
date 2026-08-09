@@ -70,7 +70,7 @@ shape = SubResource("RectangleShape2D_1")
 
 [node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
 script = ExtResource("2_gm0ca")
-speed = 225.0
+speed = 175.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1104729490]
 script = ExtResource("3_2jmdc")
