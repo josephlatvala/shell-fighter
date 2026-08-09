@@ -11,6 +11,7 @@ const muzzleDistance: float = 15
 const BULLET = preload("res://scenes/entities/bullet/bullet.tscn")
 var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 var current_bullet_data: BulletData
+var ammoType: int = 1
 
 @onready var muzzle: Marker2D = $Muzzle
 @onready var player: Node2D = $".."
@@ -57,14 +58,35 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			shoot()
+		
+	if Input.is_action_just_pressed("selectNormalAmmo"):
+		current_bullet_data = normal_bullet_data
+		ammoType = 1
+	elif Input.is_action_just_pressed("selectSpreadAmmo"):
+		current_bullet_data = scatter_bullet_data
+		ammoType = 2
+	elif Input.is_action_just_pressed("selectGernadeAmmo"):
+		current_bullet_data = grenade_bullet_data
+		ammoType = 3
+		
+	if Input.is_action_just_pressed("selectAmmoLeft"):
+		ammoType = ammoType - 1
+	elif Input.is_action_just_pressed("selectAmmoRight"):
+		ammoType = ammoType + 1
+	
+	if ammoType < 1:
+		ammoType = 3
+	elif ammoType > 3:
+		ammoType = 1
+		
+	if ammoType == 1:
+		current_bullet_data = normal_bullet_data
+	elif ammoType == 2:
+		current_bullet_data = scatter_bullet_data
+	elif ammoType == 3:
+		current_bullet_data = grenade_bullet_data
 
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_1:
-			current_bullet_data = normal_bullet_data
-		elif event.keycode == KEY_2:
-			current_bullet_data = scatter_bullet_data
-		elif event.keycode == KEY_3:
-			current_bullet_data = grenade_bullet_data
+
 
 func shoot():
 	if not current_bullet_data:

@@ -70,11 +70,11 @@ shape = SubResource("RectangleShape2D_1")
 
 [node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
 script = ExtResource("2_gm0ca")
-speed = 240.0
+speed = 225.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1104729490]
 script = ExtResource("3_2jmdc")
-max_health = 15
+max_health = 25
 invincibility_time = 0.0
 
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_2jmdc")]
