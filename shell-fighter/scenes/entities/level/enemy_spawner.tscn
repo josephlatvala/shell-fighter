@@ -9,4 +9,3 @@ anchor_bottom = 0.194
 offset_right = -167.04001
 offset_bottom = -125.712006
 script = ExtResource("1_4tumr")
-initial_grace_period = 10.0

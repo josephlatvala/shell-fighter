@@ -1,20 +1,20 @@
 extends ReferenceRect
 
 # Difficulty ramp
-@export var initial_grace_period: float = 6.0   # no spawns at all before this
+@export var initial_grace_period: float = 7.0   # no spawns at all before this
 @export var ramp_duration: float = 90.0         # time to go from "easy" to "full difficulty"
 
 # Easy (start of ramp)
-@export var min_spawn_delay_start: float = 5.0
-@export var max_spawn_delay_start: float = 8.0
+@export var min_spawn_delay_start: float = 12.0
+@export var max_spawn_delay_start: float = 18.0
 @export var min_spawn_count_start: int = 1
-@export var max_spawn_count_start: int = 2
+@export var max_spawn_count_start: int = 1
 
 # Hard (end of ramp / current values become the ceiling)
-@export var min_spawn_delay_end: float = 3.0
-@export var max_spawn_delay_end: float = 6.0
-@export var min_spawn_count_end: int = 2
-@export var max_spawn_count_end: int = 6
+@export var min_spawn_delay_end: float = 7.0
+@export var max_spawn_delay_end: float = 10.0
+@export var min_spawn_count_end: int = 1
+@export var max_spawn_count_end: int = 3
 
 # Spawn placement
 @export var min_distance_from_player: float = 120.0
