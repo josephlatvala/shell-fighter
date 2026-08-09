@@ -24,6 +24,7 @@ func take_damage(amount: int) -> void:
 	health_changed.emit(current_health)
 
 	if current_health == 0:
+		print("firing death event")
 		died.emit()
 	elif invincibility_time > 0.0:
 		_start_invincibility()

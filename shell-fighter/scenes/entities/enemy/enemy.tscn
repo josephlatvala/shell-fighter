@@ -34,5 +34,3 @@ invincibility_time = 0.0
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_in88q")]
 
 [node name="AmmoPickup" parent="ItemDrop" unique_id=390165608 instance=ExtResource("5_dxsuy")]
-
-[connection signal="died" from="HealthComponent" to="ItemDrop" method="_on_died"]
