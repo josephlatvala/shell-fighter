@@ -6,4 +6,7 @@
 [resource]
 script = ExtResource("1")
 texture = ExtResource("2_ta2tq")
-spread = 0.031415926499999997
+damage = 50
+speed = 60.0
+shot_count = 1
+spread = 0.03141592649999999

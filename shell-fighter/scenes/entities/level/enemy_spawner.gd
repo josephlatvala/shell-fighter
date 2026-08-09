@@ -5,9 +5,9 @@ const HEAVYENEMY = preload("res://scenes/entities/enemy/heavyEnemy.tscn")
 const LIGHTENEMY = preload("res://scenes/entities/enemy/lightEnemy.tscn")
 
 const minimum_spawn_delay: float = 3
-const maximum_spawn_delay: float = 6
-const minimum_spawn_count: int = 2
-const maximum_spawn_count: int = 6
+const maximum_spawn_delay: float = 5
+const minimum_spawn_count: int = 1
+const maximum_spawn_count: int = 5
 
 @onready var level: Node2D = $".."
 @onready var spawning_area: Vector4 = Vector4(position.x, size.x, position.y, size.y)

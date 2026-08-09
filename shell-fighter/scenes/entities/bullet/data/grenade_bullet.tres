@@ -6,7 +6,7 @@
 script = ExtResource("1")
 sprite_scale = 0.08
 damage = 100
-speed = 60.0
+speed = 30.0
 time_to_live = 1.5
 shot_count = 1
 spread = 0.0

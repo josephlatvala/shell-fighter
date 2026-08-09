@@ -16,7 +16,7 @@ size = Vector2(18, 18)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2vwmq")
-score_value = 16
+score_value = 20
 contact_damage = 10
 
 [node name="Sprite" type="Polygon2D" parent="." unique_id=1097942625]
@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_1")
 
 [node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
 script = ExtResource("2_5rjq2")
-speed = 60.0
+speed = 113.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1104729490]
 script = ExtResource("3_2vwmq")
