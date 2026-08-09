@@ -7,6 +7,7 @@ const AMMO_PICKUP = preload("res://scenes/pickup/AmmoPickup.tscn")
 
 @onready var chase_component: ChaseComponent = $ChaseComponent
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 func _ready() -> void:
 	var player := get_tree().get_first_node_in_group("player")
@@ -21,3 +22,9 @@ func _physics_process(_delta: float) -> void:
 func _on_died() -> void:
 	Score.add_score(score_value)
 	queue_free()
+
+func _process(_delta):
+	if chase_component.get_velocity(global_position).x < 0:
+		sprite.play("left")
+	else:
+		sprite.play("right")
