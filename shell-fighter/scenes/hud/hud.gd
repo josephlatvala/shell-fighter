@@ -24,7 +24,7 @@ func _ready() -> void:
 	if player and player.has_node("HealthComponent"):
 		var health_component: HealthComponent = player.get_node("HealthComponent")
 		health_component.health_changed.connect(_on_health_changed)
-		_on_health_changed(health_component.current_health)
+		_on_health_changed(health_component.current_health, health_component.max_health)
 
 	if player and player.has_node("shootingComponent"):
 		shooting = player.get_node("shootingComponent")
@@ -51,7 +51,7 @@ func _ready() -> void:
 func _on_score_changed(new_score: int) -> void:
 	score_label.text = "%d" % new_score
 
-func _on_health_changed(current: int) -> void:
+func _on_health_changed(current: int, _max: int) -> void:
 	health_label.text = "%d" % current
 
 func _on_bullet_type_changed(bullet_data: BulletData) -> void:
@@ -64,7 +64,7 @@ func _on_bullet_type_changed(bullet_data: BulletData) -> void:
 	else:
 		weapon_icon.texture = normal_icon
 
-func _on_ammo_changed(bullet_data: BulletData, current: int, max: int) -> void:
+func _on_ammo_changed(bullet_data: BulletData, current: int, _max: int) -> void:
 	if not bullet_data or not shooting:
 		return
 	if bullet_data == shooting.normal_bullet_data:
