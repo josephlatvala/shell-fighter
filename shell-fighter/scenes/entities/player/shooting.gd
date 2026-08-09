@@ -1,5 +1,7 @@
 extends Node2D
 
+signal bullet_type_changed(bullet_data: BulletData)
+
 # Assign one .tres resource per slot in the Inspector
 # (normal_bullet.tres / scatter_bullet.tres / grenade_bullet.tres)
 @export var normal_bullet_data: BulletData
@@ -23,6 +25,7 @@ var ammoType: int = 1
 
 func _ready() -> void:
 	current_bullet_data = normal_bullet_data
+	bullet_type_changed.emit(current_bullet_data)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -59,7 +62,9 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			shoot()
-		
+	
+	var previous_bullet_data := current_bullet_data
+	
 	if Input.is_action_just_pressed("selectNormalAmmo"):
 		current_bullet_data = normal_bullet_data
 		ammoType = 1
@@ -86,7 +91,12 @@ func _input(event):
 		current_bullet_data = scatter_bullet_data
 	elif ammoType == 3:
 		current_bullet_data = grenade_bullet_data
-
+	
+	# Only fire the signal when the equipped type actually changed, since this
+	# block re-runs on every _input() call (including mouse motion), not just
+	# on the select/cycle presses.
+	if current_bullet_data != previous_bullet_data:
+		bullet_type_changed.emit(current_bullet_data)
 
 
 func shoot():

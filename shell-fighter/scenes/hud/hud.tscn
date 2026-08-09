@@ -3,6 +3,18 @@
 [ext_resource type="Script" uid="uid://fywh44knuhv5" path="res://scenes/hud/hud.gd" id="1_48c2t"]
 [ext_resource type="Texture2D" uid="uid://by6cyi8xbnpog" path="res://assets/art/shellfighterUIAssets.png" id="2_cgeww"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1murt"]
+atlas = ExtResource("2_cgeww")
+region = Rect2(442, 0, 95, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sj0x"]
+atlas = ExtResource("2_cgeww")
+region = Rect2(582, 0, 95, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wli1"]
+atlas = ExtResource("2_cgeww")
+region = Rect2(722, 0, 95, 70)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6kh0b"]
 atlas = ExtResource("2_cgeww")
 region = Rect2(0, 0, 124, 70)
@@ -23,6 +35,9 @@ region = Rect2(316, 0, 62, 70)
 
 [node name="HUD" type="CanvasLayer" unique_id=449399484]
 script = ExtResource("1_48c2t")
+normal_icon = SubResource("AtlasTexture_1murt")
+scatter_icon = SubResource("AtlasTexture_5sj0x")
+grenade_icon = SubResource("AtlasTexture_7wli1")
 
 [node name="Root" type="Control" parent="." unique_id=820983004]
 layout_mode = 3
@@ -83,3 +98,59 @@ offset_top = -15.0
 offset_bottom = 55.0
 grow_horizontal = 0
 texture = SubResource("AtlasTexture_pi2ec")
+
+[node name="WeaponIcon" type="TextureRect" parent="Root" unique_id=1603591573]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -37.0
+offset_right = 20.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NormalAmmoLabel" type="Label" parent="Root" unique_id=849645222]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -38.0
+offset_right = 13.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ScatterAmmoLabel" type="Label" parent="Root" unique_id=1194769780]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -38.0
+offset_right = 47.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GrenadeAmmoLabel" type="Label" parent="Root" unique_id=2109873087]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -39.0
+offset_right = 81.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
