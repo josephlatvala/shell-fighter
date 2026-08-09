@@ -6,7 +6,7 @@ extends ReferenceRect
 @export var maximum_spawn_count: int = 6
 @export var enemy_table: Array[Resource] = [preload("res://scenes/entities/enemy/enemy.tscn")]
 
-@onready var level: Node2D = $".."
+@onready var level: Node2D = $"../.."
 @onready var spawning_area: Vector4 = Vector4(position.x, size.x, position.y, size.y)
 
 var time_until_next_spawn = 0

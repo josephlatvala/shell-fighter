@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7w2ncws067wk"]
 
 [ext_resource type="Script" uid="uid://cdv7gx8j1v8ml" path="res://scenes/entities/enemy/melee_enemy.gd" id="1_2jmdc"]
+[ext_resource type="Texture2D" uid="uid://b4tjbdpiyovmv" path="res://assets/art/shellfightEnemyAssets.png" id="2_45u4a"]
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="2_gm0ca"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_2jmdc"]
 [ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_2jmdc"]
@@ -8,8 +9,49 @@
 [ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="6_45u4a"]
 [ext_resource type="Resource" uid="uid://d2jochhovqfud" path="res://scenes/entities/bullet/data/scatter_bullet.tres" id="7_co1rs"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_co1rs"]
+atlas = ExtResource("2_45u4a")
+region = Rect2(375, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4uqo"]
+atlas = ExtResource("2_45u4a")
+region = Rect2(300, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45u4a"]
+atlas = ExtResource("2_45u4a")
+region = Rect2(450, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmjsp"]
+atlas = ExtResource("2_45u4a")
+region = Rect2(525, 0, 75, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha1pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co1rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4uqo")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45u4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmjsp")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(18, 18)
+size = Vector2(23, 12)
 
 [node name="lightEnemy" type="CharacterBody2D" unique_id=1644194860 groups=["enemy"]]
 collision_layer = 2
@@ -18,12 +60,12 @@ script = ExtResource("1_2jmdc")
 score_value = 5
 contact_damage = 2
 
-[node name="Sprite" type="Polygon2D" parent="." unique_id=1097942625]
-color = Color(0.16311747, 0.2772821, 0.96626586, 1)
-polygon = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
-uv = PackedVector2Array(0, -10, 9, -3, 6, 9, -6, 9, -9, -3)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1028660264]
+sprite_frames = SubResource("SpriteFrames_ha1pi")
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524065040]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1")
 
 [node name="ChaseComponent" type="Node2D" parent="." unique_id=793723812]
