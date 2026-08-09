@@ -45,8 +45,6 @@ offset_top = -902.0
 offset_right = -1144.7739
 offset_bottom = -671.0
 border_width = 5.0
-maximum_spawn_delay = 9.0
-maximum_spawn_count = 3
 enemy_table = Array[Resource]([ExtResource("5_p0sgw"), ExtResource("5_p0sgw"), ExtResource("4_q3yf3")])
 
 [node name="SpawnArea3" parent="Spawners" unique_id=969358777 instance=ExtResource("3_dvch7")]
@@ -57,9 +55,6 @@ offset_top = -1052.0
 offset_right = 1185.0
 offset_bottom = -821.0
 border_width = 5.0
-minimum_spawn_delay = 10.0
-maximum_spawn_delay = 20.0
-maximum_spawn_count = 8
 
 [node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_nh0vn")]
 
