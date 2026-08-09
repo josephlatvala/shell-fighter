@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="BulletData" format=3 uid="uid://bjq2p8a7k8rtq"]
 
 [ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://btrsixptip053" path="res://assets/art/shellfightAmmoBulletAssets.png" id="2_t6rcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_des3h"]
+atlas = ExtResource("2_t6rcx")
+region = Rect2(160, 0, 32, 32)
 
 [resource]
 script = ExtResource("1")
+texture = SubResource("AtlasTexture_des3h")
 sprite_scale = 0.08
 damage = 100
 speed = 60.0
