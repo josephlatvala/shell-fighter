@@ -1,30 +1,86 @@
 [gd_scene format=3 uid="uid://b5oonjelms62m"]
 
 [ext_resource type="PackedScene" uid="uid://dn4ece6uedwm6" path="res://scenes/entities/player/player.tscn" id="1_nh0vn"]
-[ext_resource type="Shader" uid="uid://33jaxwv2dfj6" path="res://scenes/entities/level/background.gdshader" id="1_yt2x1"]
-[ext_resource type="PackedScene" uid="uid://ckwp25eqw0hfb" path="res://scenes/entities/level/background.tscn" id="2_dvch7"]
 [ext_resource type="PackedScene" uid="uid://of1satu7oc54" path="res://scenes/entities/level/enemy_spawner.tscn" id="3_dvch7"]
+[ext_resource type="Texture2D" uid="uid://8nwq1fkm5kyv" path="res://assets/art/shellFightBackgroundAssets.png" id="4_ihvo6"]
 [ext_resource type="PackedScene" uid="uid://doq1fblqbekn" path="res://assets/level_music_streamer.tscn" id="5_cdrei"]
 
+[sub_resource type="Shader" id="Shader_almml"]
+code = "hader_type canvas_item;
+uniform vec2 camera_position;
+
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV + camera_position);
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ha1pi"]
-shader = ExtResource("1_yt2x1")
-shader_parameter/camera_position = Vector2(0, 0)
+render_priority = 0
+shader = SubResource("Shader_almml")
 
 [node name="Swamp" type="Node2D" unique_id=579309800]
 material = SubResource("ShaderMaterial_ha1pi")
 
-[node name="Background" parent="." unique_id=992737981 instance=ExtResource("2_dvch7")]
-
 [node name="SpawnArea1" parent="." unique_id=1944220573 instance=ExtResource("3_dvch7")]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 384.0
-offset_top = -993.0
-offset_right = 1249.0
-offset_bottom = 1012.0
+offset_left = 806.0
+offset_top = -450.0
+offset_right = 1353.0
+offset_bottom = 363.0
 border_width = 5.0
 
 [node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_nh0vn")]
 
 [node name="LevelMusicStreamer" parent="." unique_id=700238048 instance=ExtResource("5_cdrei")]
 autoplay = true
+
+[node name="Decorations" type="Node" parent="." unique_id=1942598674]
+
+[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=1016465423]
+position = Vector2(-441, -186)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+
+[node name="Sprite2D2" type="Sprite2D" parent="Decorations" unique_id=1861217556]
+position = Vector2(196, 217)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Decorations" unique_id=2078346681]
+position = Vector2(1225, -96)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Decorations" unique_id=1836395833]
+position = Vector2(-334, 74)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 3
+
+[node name="Sprite2D5" type="Sprite2D" parent="Decorations" unique_id=391466061]
+position = Vector2(-102, -224)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 4
+
+[node name="Sprite2D6" type="Sprite2D" parent="Decorations" unique_id=388212336]
+position = Vector2(332, 73)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 5
+
+[node name="Sprite2D7" type="Sprite2D" parent="Decorations" unique_id=1019333247]
+position = Vector2(282, -69)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 6
+
+[node name="Sprite2D8" type="Sprite2D" parent="Decorations" unique_id=1872491290]
+position = Vector2(-130, -43)
+texture = ExtResource("4_ihvo6")
+hframes = 7
+frame = 3
