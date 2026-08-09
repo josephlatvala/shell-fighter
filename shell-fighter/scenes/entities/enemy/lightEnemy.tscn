@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://c7w2ncws067wk"]
 
-[ext_resource type="Script" uid="uid://cr8apjfblj36x" path="res://scenes/entities/enemy/light_enemy.gd" id="1_ngdte"]
+[ext_resource type="Script" uid="uid://cdv7gx8j1v8ml" path="res://scenes/entities/enemy/melee_enemy.gd" id="1_2jmdc"]
 [ext_resource type="Script" uid="uid://ctbe3qlqglpnm" path="res://scripts/chase_component.gd" id="2_gm0ca"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_2jmdc"]
+[ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_2jmdc"]
+[ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="5_o5mpk"]
+[ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="6_45u4a"]
+[ext_resource type="Resource" uid="uid://d2jochhovqfud" path="res://scenes/entities/bullet/data/scatter_bullet.tres" id="7_co1rs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(18, 18)
@@ -10,7 +14,9 @@ size = Vector2(18, 18)
 [node name="lightEnemy" type="CharacterBody2D" unique_id=1644194860 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_ngdte")
+script = ExtResource("1_2jmdc")
+score_value = 5
+contact_damage = 2
 
 [node name="Sprite" type="Polygon2D" parent="." unique_id=1097942625]
 color = Color(0.16311747, 0.2772821, 0.96626586, 1)
@@ -28,3 +34,7 @@ speed = 240.0
 script = ExtResource("3_2jmdc")
 max_health = 15
 invincibility_time = 0.0
+
+[node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_2jmdc")]
+max_drop = 3
+possible_bullet_data = Array[ExtResource("5_o5mpk")]([ExtResource("6_45u4a"), ExtResource("7_co1rs")])

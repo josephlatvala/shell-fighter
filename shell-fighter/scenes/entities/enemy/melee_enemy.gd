@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@export var contact_damage: int = 10
-@export var score_value: int= 10
+const AMMO_PICKUP = preload("res://scenes/pickup/AmmoPickup.tscn")
+
+@export var score_value: int = 10
+@export var contact_damage: int = 5
 
 @onready var chase_component: ChaseComponent = $ChaseComponent
 @onready var health_component: HealthComponent = $HealthComponent

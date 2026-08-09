@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://cbl8atr24cu21" path="res://scenes/entities/player/player.gd" id="1_nh4ur"]
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_58kc7"]
 [ext_resource type="Texture2D" uid="uid://cclm4a3qg00ui" path="res://assets/art/shellfightCharacterAssets.png" id="3_nh4ur"]
-[ext_resource type="Script" uid="uid://bt776gjmemy8t" path="res://scripts/ammo_component.gd" id="5_bjvvg"]
+[ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="4_1murt"]
+[ext_resource type="Resource" uid="uid://d2jochhovqfud" path="res://scenes/entities/bullet/data/scatter_bullet.tres" id="5_5sj0x"]
+[ext_resource type="Script" uid="uid://bt776gjmemy8t" path="res://scenes/entities/player/ammo_component.gd" id="5_bjvvg"]
+[ext_resource type="Resource" uid="uid://bjq2p8a7k8rtq" path="res://scenes/entities/bullet/data/grenade_bullet.tres" id="6_ovg4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjvvg"]
 atlas = ExtResource("3_nh4ur")
@@ -260,6 +263,9 @@ position_smoothing_enabled = true
 [node name="shootingComponent" type="Node2D" parent="." unique_id=545498133]
 z_index = 4
 script = ExtResource("1_635qg")
+normal_bullet_data = ExtResource("4_1murt")
+scatter_bullet_data = ExtResource("5_5sj0x")
+grenade_bullet_data = ExtResource("6_ovg4i")
 
 [node name="Muzzle" type="Marker2D" parent="shootingComponent" unique_id=365304753]
 z_index = 4
@@ -283,12 +289,11 @@ width = 5.0
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1056291885]
 script = ExtResource("3_58kc7")
-max_health = 5
+max_health = 30
 invincibility_time = 2.0
 
 [node name="AmmoComponent" type="Node2D" parent="." unique_id=326574242]
 script = ExtResource("5_bjvvg")
-max_ammo = 10
 
 [node name="InDashTimer" type="Timer" parent="." unique_id=614175632]
 wait_time = 0.2

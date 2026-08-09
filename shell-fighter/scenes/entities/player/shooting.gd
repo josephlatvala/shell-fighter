@@ -1,17 +1,16 @@
 extends Node2D
 
+# Assign one .tres resource per slot in the Inspector
+# (normal_bullet.tres / scatter_bullet.tres / grenade_bullet.tres)
+@export var normal_bullet_data: BulletData
+@export var scatter_bullet_data: BulletData
+@export var grenade_bullet_data: BulletData
 
-# TODO: Consider making these depend on a selectable gun
 const muzzleDistance: float = 15
-const bulletVelocityMagnitude: float = 100
-const bulletTimeToLive: float = 0.3
-const bulletDamage: int = 10
-const bulletShotCount: int = 3
-const bulletSpread: float = PI * 0.01
-
 
 const BULLET = preload("res://scenes/entities/bullet/bullet.tscn")
 var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
+var current_bullet_data: BulletData
 
 @onready var muzzle: Marker2D = $Muzzle
 @onready var player: Node2D = $".."
@@ -20,6 +19,9 @@ var shootDirection: Vector2 = Vector2(0,1) # Should be a unit vector
 
 @onready var debug_mouse_tracker: Line2D = $DebugMouseTracker
 @onready var debug_aim_tracker: Line2D = $DebugAimTracker
+
+func _ready() -> void:
+	current_bullet_data = normal_bullet_data
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -56,29 +58,47 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			shoot()
 
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_1:
+			current_bullet_data = normal_bullet_data
+		elif event.keycode == KEY_2:
+			current_bullet_data = scatter_bullet_data
+		elif event.keycode == KEY_3:
+			current_bullet_data = grenade_bullet_data
+
 func shoot():
-	if not ammo_component.try_use_ammo():
+	if not current_bullet_data:
+		return
+	if not ammo_component.try_use_ammo(current_bullet_data):
 		return
 		
 	randomize()
 	
-	var baseDirection = shootDirection * bulletVelocityMagnitude
+	print("[shoot] using %s (path: %s) dmg=%d shots=%d" % [
+		current_bullet_data.resource_name if current_bullet_data.resource_name else "unnamed",
+		current_bullet_data.resource_path if current_bullet_data.resource_path else "EMBEDDED/NO PATH",
+		current_bullet_data.damage,
+		current_bullet_data.shot_count
+	])
 	
-	for _i in range(bulletShotCount):
+	var baseDirection = shootDirection * current_bullet_data.speed
+	
+	for _i in range(current_bullet_data.shot_count):
 		var newBullet = BULLET.instantiate()
 		
 		newBullet.position = muzzle.position + player.position
 		newBullet.rotation = muzzle.rotation
 		
-		newBullet.damage = bulletDamage
-		newBullet.timeToLive = bulletTimeToLive
+		# Add to the tree first so the bullet's @onready vars (sprite, etc.) are
+		# resolved before we touch them in setup()
+		player.add_sibling(newBullet)
+		newBullet.setup(current_bullet_data)
 		
 		# Rotate the bullet randomly based on spread
-		var theta = randf_range(-bulletSpread, bulletSpread)
+		var theta = randf_range(-current_bullet_data.spread, current_bullet_data.spread)
 		var bulletDirection = Vector2(
 			baseDirection.dot(Vector2(cos(theta), -sin(theta))),
 			baseDirection.dot(Vector2(sin(theta),  cos(theta)))
 		)
 		
 		newBullet.get_node(NodePath("RigidBody2D")).apply_force(bulletDirection)
-		player.add_sibling(newBullet)
