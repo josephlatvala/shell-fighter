@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bfdm5p63on51f"]
+
+[ext_resource type="AudioStream" uid="uid://7wxsj8nro6es" path="res://assets/Shellshocked.mp3" id="1_uuwbd"]
+
+[node name="GameOverStreamer" type="AudioStreamPlayer" unique_id=700238048]
+stream = ExtResource("1_uuwbd")
+autoplay = true

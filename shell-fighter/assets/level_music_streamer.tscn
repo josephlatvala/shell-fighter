@@ -4,3 +4,4 @@
 
 [node name="LevelMusicStreamer" type="AudioStreamPlayer" unique_id=700238048]
 stream = ExtResource("1_gqk6q")
+autoplay = true

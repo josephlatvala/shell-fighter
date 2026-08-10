@@ -24,4 +24,4 @@ spread = 0.0
 is_grenade = true
 fuse_time = 1.2
 explosion_radius = 50.0
-max_ammo = 5
+max_ammo = 10

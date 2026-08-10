@@ -10,6 +10,7 @@ var timeToLive: float = 0
 @onready var area_2d: Area2D = $RigidBody2D/Area2D
 @onready var sprite_2d: Sprite2D = $RigidBody2D/Sprite2D
 @onready var timeLived: float = 0
+@onready var sfx_grenade_explosion: AudioStreamPlayer = $sfxGrenadeExplosion
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,6 +64,9 @@ func _explode() -> void:
 	var explosion_position: Vector2 = rigid_body_2d.global_position
 
 	_spawn_explosion_visual(explosion_position)
+	if(sfx_grenade_explosion != null):
+		sfx_grenade_explosion.play()
+
 
 	var hit_count := 0
 	for enemy in get_tree().get_nodes_in_group("enemy"):
@@ -77,6 +81,7 @@ func _explode() -> void:
 					enemy.name, damage, hp_before, health_component.current_health
 				])
 				hit_count += 1
+				
 
 	print("Grenade exploded: hit %d enem%s within radius %.1f" % [
 		hit_count,

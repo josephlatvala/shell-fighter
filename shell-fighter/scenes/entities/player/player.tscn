@@ -8,7 +8,11 @@
 [ext_resource type="Resource" uid="uid://d2jochhovqfud" path="res://scenes/entities/bullet/data/scatter_bullet.tres" id="5_5sj0x"]
 [ext_resource type="Script" uid="uid://bt776gjmemy8t" path="res://scenes/entities/player/ammo_component.gd" id="5_bjvvg"]
 [ext_resource type="Resource" uid="uid://bjq2p8a7k8rtq" path="res://scenes/entities/bullet/data/grenade_bullet.tres" id="6_ovg4i"]
+[ext_resource type="AudioStream" uid="uid://bpy46ygpxi6b7" path="res://assets/playerShoot.wav" id="8_7wli1"]
 [ext_resource type="Script" uid="uid://dq1uxkknj2wvj" path="res://scripts/flash_on_hit.gd" id="9_5sj0x"]
+[ext_resource type="AudioStream" uid="uid://qs2n3naabj0i" path="res://assets/switchShellTypeClick.wav" id="9_j0oqr"]
+[ext_resource type="AudioStream" uid="uid://ioofs0fxjmin" path="res://assets/playerHurt.wav" id="10_ovg4i"]
+[ext_resource type="AudioStream" uid="uid://iogc0n07x7n8" path="res://assets/outOfThisAmmo.wav" id="10_xy2vv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(16, 16)
@@ -286,6 +290,15 @@ visible = false
 points = PackedVector2Array(0, 0, 0, 0)
 width = 5.0
 
+[node name="sfxPlayerShoot" type="AudioStreamPlayer" parent="shootingComponent" unique_id=102185555]
+stream = ExtResource("8_7wli1")
+
+[node name="sfxAmmoSwitch" type="AudioStreamPlayer" parent="shootingComponent" unique_id=656999784]
+stream = ExtResource("9_j0oqr")
+
+[node name="sfxOutOfAmmo" type="AudioStreamPlayer" parent="shootingComponent" unique_id=1654820580]
+stream = ExtResource("10_xy2vv")
+
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1056291885]
 script = ExtResource("3_58kc7")
 invincibility_time = 2.0
@@ -303,6 +316,9 @@ wait_time = 5.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=394871500]
 sprite_frames = SubResource("SpriteFrames_8akj5")
 animation = &"move_up"
+
+[node name="sfxPlayerHurt" type="AudioStreamPlayer" parent="." unique_id=766189450]
+stream = ExtResource("10_ovg4i")
 
 [connection signal="timeout" from="InDashTimer" to="." method="_on_in_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]

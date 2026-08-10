@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://brnu5il4ytxw7"]
+
+[ext_resource type="Script" uid="uid://bin12o13713t8" path="res://scenes/Game Over/game_over.gd" id="1_a1eyl"]
+[ext_resource type="Texture2D" uid="uid://bb7jefmxxri1f" path="res://assets/art/shellfightFIXEDDeathGraphic.png" id="2_a1eyl"]
+[ext_resource type="PackedScene" uid="uid://bfdm5p63on51f" path="res://assets/game_over_streamer.tscn" id="3_a1eyl"]
+
+[node name="GameOver" type="Control" unique_id=2032479179]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a1eyl")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=362108587]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_a1eyl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=514467755]
+layout_mode = 1
+offset_right = 134.0
+offset_bottom = 60.0
+
+[node name="Back" type="Button" parent="VBoxContainer" unique_id=1590936140]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Main Menu"
+
+[node name="GameOverStreamer" parent="." unique_id=700238048 instance=ExtResource("3_a1eyl")]
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

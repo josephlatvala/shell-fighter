@@ -24,6 +24,7 @@ extends ReferenceRect
 
 @onready var level: Node2D = $"../.."
 @onready var spawning_area: Vector4 = Vector4(position.x, size.x, position.y, size.y)
+@onready var sfx_enemy_spawned: AudioStreamPlayer = $sfxEnemySpawned
 
 var elapsed_time: float = 0.0
 var time_until_next_spawn: float = 0.0
@@ -54,6 +55,8 @@ func _process(delta: float) -> void:
 		var spawn_count = randi_range(min_spawn_count, max_spawn_count)
 
 		for _i in range(spawn_count):
+			if(sfx_enemy_spawned != null):
+				sfx_enemy_spawned.play()
 			var NEW_ENEMY_TYPE = enemy_table.pick_random()
 			var newEnemy = NEW_ENEMY_TYPE.instantiate()
 

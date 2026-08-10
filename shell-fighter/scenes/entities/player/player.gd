@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var muzzle: Marker2D = $shootingComponent/Muzzle
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sfx_player_hurt: AudioStreamPlayer = $sfxPlayerHurt
 
 @export var speed: int = 150
 @export var knockback_strength: float = 700.0
@@ -26,9 +27,11 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and "contact_damage" in body:
 		print("Ouchie")
 		health_component.take_damage(body.contact_damage)
+		sfx_player_hurt.play()
 		_apply_knockback(body.global_position)
 		hurtbox.set_deferred("monitoring", false)
-		await get_tree().create_timer(health_component.invincibility_time).timeout
+		if(get_tree() != null):
+			await get_tree().create_timer(health_component.invincibility_time).timeout
 		hurtbox.monitoring = true
 
 func _apply_knockback(from_position: Vector2) -> void:
@@ -38,6 +41,8 @@ func _apply_knockback(from_position: Vector2) -> void:
 func _on_died() -> void:
 	# TODO: hook up to a game over
 	queue_free()
+	get_tree().change_scene_to_file("res://scenes/Game Over/Game Over.tscn")
+	
 
 func get_input():
 	var directionalInput = Input.get_vector("leftMovement", "rightMovement", "upMovement", "downMovement")

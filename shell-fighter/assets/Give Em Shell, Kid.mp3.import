@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Give Em Shell, Kid.mp3-fd8fd1a6906e502baee52f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

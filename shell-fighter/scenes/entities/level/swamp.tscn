@@ -52,6 +52,11 @@ offset_top = 661.0
 offset_right = -1236.0
 offset_bottom = 987.0001
 border_width = 5.0
+min_spawn_delay_start = 10.0
+max_spawn_delay_start = 15.0
+max_spawn_count_start = 3
+min_spawn_delay_end = 5.0
+max_spawn_count_end = 5
 enemy_table = Array[Resource]([ExtResource("5_p0sgw"), ExtResource("3_q3yf3")])
 
 [node name="SpawnArea1" parent="Spawners" unique_id=1944220573 instance=ExtResource("3_dvch7")]
@@ -62,6 +67,11 @@ offset_top = 732.3405
 offset_right = 1510.0
 offset_bottom = 1058.3406
 border_width = 5.0
+min_spawn_delay_start = 10.0
+max_spawn_delay_start = 15.0
+max_spawn_count_start = 3
+min_spawn_delay_end = 5.0
+max_spawn_count_end = 5
 enemy_table = Array[Resource]([ExtResource("5_p0sgw"), ExtResource("3_q3yf3")])
 
 [node name="SpawnArea2" parent="Spawners" unique_id=12265772 instance=ExtResource("3_dvch7")]
@@ -72,12 +82,16 @@ offset_top = -865.0001
 offset_right = 111.0
 offset_bottom = -539.0
 border_width = 5.0
+min_spawn_delay_start = 10.0
+max_spawn_delay_start = 15.0
+max_spawn_count_start = 3
+min_spawn_delay_end = 5.0
+max_spawn_count_end = 5
 enemy_table = Array[Resource]([ExtResource("5_p0sgw"), ExtResource("3_q3yf3"), ExtResource("5_aahmu")])
 
 [node name="Player" parent="." unique_id=1644235627 instance=ExtResource("1_nh0vn")]
 
 [node name="LevelMusicStreamer" parent="." unique_id=700238048 instance=ExtResource("5_cdrei")]
-autoplay = true
 
 [node name="HealthPickup" parent="." unique_id=1436417864 instance=ExtResource("7_p0sgw")]
 position = Vector2(160, 192)
@@ -436,18 +450,18 @@ collision_mask = 0
 script = ExtResource("9_oe1fv")
 world_size = Vector2(3500, 1750)
 
-[node name="@CollisionShape2D@75413" type="CollisionShape2D" parent="WorldBorder" unique_id=837092465]
+[node name="Top" type="CollisionShape2D" parent="WorldBorder" unique_id=779796004]
 position = Vector2(0, -883)
 shape = SubResource("RectangleShape2D_aahmu")
 
-[node name="@CollisionShape2D@75414" type="CollisionShape2D" parent="WorldBorder" unique_id=1042257779]
+[node name="Bottom" type="CollisionShape2D" parent="WorldBorder" unique_id=719195668]
 position = Vector2(0, 883)
 shape = SubResource("RectangleShape2D_n1mpl")
 
-[node name="@CollisionShape2D@75415" type="CollisionShape2D" parent="WorldBorder" unique_id=468146274]
+[node name="Left" type="CollisionShape2D" parent="WorldBorder" unique_id=995284233]
 position = Vector2(-1758, 0)
 shape = SubResource("RectangleShape2D_ir8f2")
 
-[node name="@CollisionShape2D@75416" type="CollisionShape2D" parent="WorldBorder" unique_id=1288199554]
+[node name="Right" type="CollisionShape2D" parent="WorldBorder" unique_id=659171108]
 position = Vector2(1758, 0)
 shape = SubResource("RectangleShape2D_1fkkc")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cm7gqfwom3ifc"]
 
 [ext_resource type="Script" uid="uid://dg38n8fxitl6x" path="res://scenes/pickup/health_pickup.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dotxqgx1gl04a" path="res://assets/art/shellfightLIFEPICKUP.png" id="2_cu0o5"]
+[ext_resource type="Texture2D" uid="uid://c76dlqy3phyof" path="res://assets/art/shellfightLIFEPICKUP (1).png" id="2_cu0o5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 12.165525

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jq0a6qgj1a4p" path="res://scenes/entities/bullet/bullet.gd" id="1_rbbaa"]
 [ext_resource type="Texture2D" uid="uid://btrsixptip053" path="res://assets/art/shellfightAmmoBulletAssets.png" id="2_rbbaa"]
+[ext_resource type="AudioStream" uid="uid://blmjx77dt41dx" path="res://assets/grenadeExplosion.wav" id="3_ekees"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbbaa"]
 atlas = ExtResource("2_rbbaa")
@@ -26,3 +27,6 @@ collision_mask = 2
 scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_ob3tw")
 debug_color = Color(0.98039216, 0, 0.3882353, 0.6392157)
+
+[node name="sfxGrenadeExplosion" type="AudioStreamPlayer" parent="." unique_id=889501100]
+stream = ExtResource("3_ekees")

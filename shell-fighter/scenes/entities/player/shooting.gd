@@ -19,6 +19,9 @@ var ammoType: int = 1
 @onready var player: Node2D = $".."
 @onready var animated_sprite_2d: AnimatedSprite2D = $Muzzle/AnimatedSprite2D
 @onready var ammo_component: AmmoComponent = $"../AmmoComponent"
+@onready var sfx_player_shoot: AudioStreamPlayer = $sfxPlayerShoot
+@onready var sfx_ammo_switch: AudioStreamPlayer = $sfxAmmoSwitch
+@onready var sfx_out_of_ammo: AudioStreamPlayer = $sfxOutOfAmmo
 
 @onready var debug_mouse_tracker: Line2D = $DebugMouseTracker
 @onready var debug_aim_tracker: Line2D = $DebugAimTracker
@@ -68,17 +71,27 @@ func _input(event):
 	if Input.is_action_just_pressed("selectNormalAmmo"):
 		current_bullet_data = normal_bullet_data
 		ammoType = 1
+		if (sfx_ammo_switch != null):
+			sfx_ammo_switch.play()
 	elif Input.is_action_just_pressed("selectSpreadAmmo"):
 		current_bullet_data = scatter_bullet_data
 		ammoType = 2
+		if (sfx_ammo_switch != null):
+			sfx_ammo_switch.play()
 	elif Input.is_action_just_pressed("selectGernadeAmmo"):
 		current_bullet_data = grenade_bullet_data
 		ammoType = 3
+		if (sfx_ammo_switch != null):
+			sfx_ammo_switch.play()
 		
 	if Input.is_action_just_pressed("selectAmmoLeft"):
 		ammoType = ammoType - 1
+		if (sfx_ammo_switch != null):
+			sfx_ammo_switch.play()
 	elif Input.is_action_just_pressed("selectAmmoRight"):
 		ammoType = ammoType + 1
+		if (sfx_ammo_switch != null):
+			sfx_ammo_switch.play()
 	
 	if ammoType < 1:
 		ammoType = 3
@@ -103,6 +116,8 @@ func shoot():
 	if not current_bullet_data:
 		return
 	if not ammo_component.try_use_ammo(current_bullet_data):
+		if(sfx_out_of_ammo != null):
+			sfx_out_of_ammo.play()
 		return
 		
 	randomize()
@@ -117,6 +132,9 @@ func shoot():
 	var baseDirection = shootDirection * current_bullet_data.speed
 	
 	for _i in range(current_bullet_data.shot_count):
+		if (sfx_player_shoot != null):
+			sfx_player_shoot.play()
+		
 		var newBullet = BULLET.instantiate()
 		
 		newBullet.position = muzzle.position + player.position
