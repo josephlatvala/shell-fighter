@@ -20,3 +20,4 @@ damage = 25
 speed = 60.0
 shot_count = 1
 spread = 0.03141592649999999
+max_ammo = 50

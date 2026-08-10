@@ -8,6 +8,7 @@
 [node name="AmmoPickup" type="Area2D" unique_id=390165608]
 collision_layer = 0
 script = ExtResource("1_pc2ub")
+ammo_amount = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1370709145]
 shape = SubResource("CircleShape2D_5n4k0")

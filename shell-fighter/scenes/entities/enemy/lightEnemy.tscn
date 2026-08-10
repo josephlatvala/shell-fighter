@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://sn7fx6iviihg" path="res://scripts/health_component.gd" id="3_2jmdc"]
 [ext_resource type="PackedScene" uid="uid://ejnrilkuj3bv" path="res://scenes/pickup/item_drop.tscn" id="4_2jmdc"]
 [ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="5_o5mpk"]
+[ext_resource type="AudioStream" uid="uid://cn46yp725fkxi" path="res://assets/enemyHurt.wav" id="5_v4uqo"]
 [ext_resource type="Resource" uid="uid://cy4ytqiek4wex" path="res://scenes/entities/bullet/data/normal_bullet.tres" id="6_45u4a"]
 [ext_resource type="Resource" uid="uid://d2jochhovqfud" path="res://scenes/entities/bullet/data/scatter_bullet.tres" id="7_co1rs"]
 [ext_resource type="Script" uid="uid://dq1uxkknj2wvj" path="res://scripts/flash_on_hit.gd" id="9_co1rs"]
@@ -77,6 +78,9 @@ speed = 100.0
 script = ExtResource("3_2jmdc")
 max_health = 25
 invincibility_time = 0.0
+
+[node name="sfxEnemyHurt" type="AudioStreamPlayer" parent="HealthComponent" unique_id=402199070]
+stream = ExtResource("5_v4uqo")
 
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_2jmdc")]
 max_drop = 3

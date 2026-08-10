@@ -4,3 +4,4 @@
 
 [node name="MainMenuMusicStreamer" type="AudioStreamPlayer" unique_id=700238048]
 stream = ExtResource("1_8d6x2")
+autoplay = true

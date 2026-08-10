@@ -17,6 +17,7 @@ extends CanvasLayer
 var shooting: Node2D # cached shootingComponent ref, used to identify bullet types by resource
 
 func _ready() -> void:
+	Score.reset()
 	Score.score_changed.connect(_on_score_changed)
 	_on_score_changed(Score.score)
 

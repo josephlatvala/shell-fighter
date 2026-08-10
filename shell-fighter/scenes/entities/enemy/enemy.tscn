@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bjq2p8a7k8rtq" path="res://scenes/entities/bullet/data/grenade_bullet.tres" id="6_7gxlw"]
 [ext_resource type="Script" uid="uid://f4j6riksqcbp" path="res://scenes/entities/bullet/bullet_data.gd" id="6_ddkys"]
 [ext_resource type="Script" uid="uid://dq1uxkknj2wvj" path="res://scripts/flash_on_hit.gd" id="9_ddkys"]
+[ext_resource type="AudioStream" uid="uid://cn46yp725fkxi" path="res://assets/enemyHurt.wav" id="10_h26p2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilesx"]
 atlas = ExtResource("2_ilesx")
@@ -75,6 +76,9 @@ speed = 75.0
 script = ExtResource("3_6fawb")
 max_health = 50
 invincibility_time = 0.0
+
+[node name="sfxEnemyHurt" type="AudioStreamPlayer" parent="HealthComponent" unique_id=1883646639]
+stream = ExtResource("10_h26p2")
 
 [node name="ItemDrop" parent="." unique_id=880284132 instance=ExtResource("4_in88q")]
 max_drop = 3

@@ -6,6 +6,8 @@ signal damaged(amount: int)
 signal healed(amount: int)
 signal died
 
+@onready var sfx_enemy_hurt: AudioStreamPlayer = $sfxEnemyHurt
+
 @export var max_health: int = 100
 @export var invincibility_time: float = 0.5  # seconds of i-frames after taking damage, 0 = off
 
@@ -17,6 +19,8 @@ func _ready() -> void:
 	health_changed.emit(current_health, max_health)
 
 func take_damage(amount: int) -> void:
+	if(sfx_enemy_hurt != null):
+		sfx_enemy_hurt.play()
 	if is_invincible or current_health <= 0:
 		return
 	current_health = max(current_health - amount, 0)
